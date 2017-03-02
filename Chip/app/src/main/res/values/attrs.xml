@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Chip">
+        <attr name="chipText" format="string" />
+        <attr name="hasIcon" format="boolean" />
+        <attr name="chipIcon" format="integer" />
+        <attr name="closable" format="boolean" />
+        <attr name="selectable" format="boolean" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="selectedBackgroundColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="selectedTextColor" format="color" />
+        <attr name="closeColor" format="color" />
+        <attr name="selectedCloseColor" format="color" />
+    </declare-styleable>
+</resources>

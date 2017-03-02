@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="chip_horizontal_padding">12dp</dimen>
+    <dimen name="chip_icon_horizontal_margin">8dp</dimen>
+    <dimen name="chip_close_horizontal_margin">4dp</dimen>
+    <dimen name="chip_close_icon_size">18dp</dimen>
+    <dimen name="chip_close_icon_size2">24dp</dimen>
+    <dimen name="chip_close_icon_padding">3dp</dimen>
+</resources>
