@@ -32,7 +32,7 @@ Add following line of code to your module(app) level gradle file
     android:layout_height="wrap_content"
     app:chipText="@string/customTitle" />
 ```
-!(https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png)
 
 
 
