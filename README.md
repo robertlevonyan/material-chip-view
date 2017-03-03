@@ -157,7 +157,7 @@ First version of library
 ## Licence
 
 ```
-    Material Chip View &#9400
+    Material Chip View©
     Copyright 2017 Robert Levonyan
     Url: https://github.com/robertlevonyan/materialChipView
     
