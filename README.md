@@ -23,7 +23,7 @@ Add following line of code to your module(app) level gradle file
   </dependency>
 ```
 
-## Usage:
+## Usage
 
 ```xml
   <com.robertlevonyan.views.chip.Chip
@@ -32,17 +32,39 @@ Add following line of code to your module(app) level gradle file
     android:layout_height="wrap_content"
     app:chipText="@string/customTitle" />
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png) ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/closable.png)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png) 
 
+### Cutomizing Chip
 
+```xml
+    app:closable="true"
+```
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/closable.png)
+
+```xml
+    app:selectable="true"
+```
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/closable.png)
+
+```xml
+    app:hasIcon="true"
+    app:chipIcon="@drawable/customIcon"
+```
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/hasIcon.png)
+
+```xml
+    app:hasIcon="true"
+    app:chipIcon="@drawable/customIcon"
+    app:closable="true"
+```
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/hasIconClosable.png)
 
 ```
     app:backgroundColor="@color/customChipBackgroundColor"
-    app:chipIcon="@drawable/customIcon"
-    app:chipText="@string/customTitle"
     app:closeColor="@color/customCloseIconColor"
-    app:hasIcon="true"
-    app:selectable="true"
     app:selectedBackgroundColor="@color/customSelectedChipColor"
     app:textColor="@color/customTitleColor"
 ```
+
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/custom1.png), 
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/custom2.png)
