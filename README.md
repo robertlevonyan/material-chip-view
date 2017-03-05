@@ -2,6 +2,8 @@
 
 Material Chip view. Can be used as tags for categories, contacts or creating text clouds.
 
+[![Android Arsenal]()](https://android-arsenal.com/details/1/5396)
+
 ## Setup
 
 #### Gradle:
