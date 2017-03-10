@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.PaintDrawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -314,9 +314,8 @@ public class Chip extends RelativeLayout {
     }
 
     private void initBackgroundColor() {
-        GradientDrawable bgDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{
-                clicked ? selectedBackgroundColor : backgroundColor,
-                clicked ? selectedBackgroundColor : backgroundColor}
+        PaintDrawable bgDrawable = new PaintDrawable(
+                clicked ? selectedBackgroundColor : backgroundColor
         );
         bgDrawable.setCornerRadius(getResources().getDimension(R.dimen.chip_height) / 2);
 
