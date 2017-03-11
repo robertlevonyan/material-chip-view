@@ -63,9 +63,6 @@ public class Chip extends RelativeLayout {
         super(context, attrs, defStyleAttr);
 
         initTypedArray(attrs);
-
-        buildView();
-
         initChipClick();
     }
 
@@ -103,8 +100,9 @@ public class Chip extends RelativeLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
-        buildView();
+	if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            buildView();
+        }
     }
 
     private void buildView() {
@@ -314,10 +312,7 @@ public class Chip extends RelativeLayout {
     }
 
     private void initBackgroundColor() {
-        GradientDrawable bgDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{
-                clicked ? selectedBackgroundColor : backgroundColor,
-                clicked ? selectedBackgroundColor : backgroundColor}
-        );
+        PaintDrawable bgDrawable = new PaintDrawable(clicked ? selectedBackgroundColor : backgroundColor);
         bgDrawable.setCornerRadius(getResources().getDimension(R.dimen.chip_height) / 2);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {

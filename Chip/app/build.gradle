@@ -30,7 +30,7 @@ dependencies {
 publish {
     groupId = 'com.robertlevonyan.view'
     artifactId = 'MaterialChipView'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Material Chip view. Can be used as tags for categories, contacts or creating text clouds'
     licences = ['Apache-2.0']
     website = 'https://github.com/robertlevonyan/materialChipView'
