@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.PaintDrawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -325,17 +325,17 @@ public class Chip extends RelativeLayout {
     private void initTypedArray(AttributeSet attrs) {
         TypedArray ta = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.Chip, 0, 0);
 
-        chipText = ta.getString(R.styleable.Chip_chipText);
-        hasIcon = ta.getBoolean(R.styleable.Chip_hasIcon, false);
-        chipIcon = ta.getDrawable(R.styleable.Chip_chipIcon);
-        closable = ta.getBoolean(R.styleable.Chip_closable, false);
-        selectable = ta.getBoolean(R.styleable.Chip_selectable, false);
-        backgroundColor = ta.getColor(R.styleable.Chip_backgroundColor, ContextCompat.getColor(getContext(), R.color.colorChipBackground));
-        selectedBackgroundColor = ta.getColor(R.styleable.Chip_selectedBackgroundColor, ContextCompat.getColor(getContext(), R.color.colorChipBackgroundClicked));
-        textColor = ta.getColor(R.styleable.Chip_textColor, ContextCompat.getColor(getContext(), R.color.colorChipText));
-        selectedTextColor = ta.getColor(R.styleable.Chip_selectedTextColor, ContextCompat.getColor(getContext(), R.color.colorChipTextClicked));
-        closeColor = ta.getColor(R.styleable.Chip_closeColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseInactive));
-        selectedCloseColor = ta.getColor(R.styleable.Chip_selectedCloseColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked));
+        chipText = ta.getString(R.styleable.Chip_mcv_chipText);
+        hasIcon = ta.getBoolean(R.styleable.Chip_mcv_hasIcon, false);
+        chipIcon = ta.getDrawable(R.styleable.Chip_mcv_chipIcon);
+        closable = ta.getBoolean(R.styleable.Chip_mcv_closable, false);
+        selectable = ta.getBoolean(R.styleable.Chip_mcv_selectable, false);
+        backgroundColor = ta.getColor(R.styleable.Chip_mcv_backgroundColor, ContextCompat.getColor(getContext(), R.color.colorChipBackground));
+        selectedBackgroundColor = ta.getColor(R.styleable.Chip_mcv_selectedBackgroundColor, ContextCompat.getColor(getContext(), R.color.colorChipBackgroundClicked));
+        textColor = ta.getColor(R.styleable.Chip_mcv_textColor, ContextCompat.getColor(getContext(), R.color.colorChipText));
+        selectedTextColor = ta.getColor(R.styleable.Chip_mcv_selectedTextColor, ContextCompat.getColor(getContext(), R.color.colorChipTextClicked));
+        closeColor = ta.getColor(R.styleable.Chip_mcv_closeColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseInactive));
+        selectedCloseColor = ta.getColor(R.styleable.Chip_mcv_selectedCloseColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked));
 
         ta.recycle();
     }

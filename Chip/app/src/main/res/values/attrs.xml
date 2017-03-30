@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Chip">
-        <attr name="chipText" format="string" />
-        <attr name="hasIcon" format="boolean" />
-        <attr name="chipIcon" format="integer" />
-        <attr name="closable" format="boolean" />
-        <attr name="selectable" format="boolean" />
-        <attr name="backgroundColor" format="color" />
-        <attr name="selectedBackgroundColor" format="color" />
-        <attr name="textColor" format="color" />
-        <attr name="selectedTextColor" format="color" />
-        <attr name="closeColor" format="color" />
-        <attr name="selectedCloseColor" format="color" />
+        <attr name="mcv_chipText" format="string" />
+        <attr name="mcv_hasIcon" format="boolean" />
+        <attr name="mcv_chipIcon" format="integer" />
+        <attr name="mcv_closable" format="boolean" />
+        <attr name="mcv_selectable" format="boolean" />
+        <attr name="mcv_backgroundColor" format="color" />
+        <attr name="mcv_selectedBackgroundColor" format="color" />
+        <attr name="mcv_textColor" format="color" />
+        <attr name="mcv_selectedTextColor" format="color" />
+        <attr name="mcv_closeColor" format="color" />
+        <attr name="mcv_selectedCloseColor" format="color" />
     </declare-styleable>
 </resources>

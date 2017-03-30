@@ -32,40 +32,40 @@ Add following line of code to your module(app) level gradle file
     android:id="@+id/chip"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:chipText="@string/customTitle" />
+    app:mcv_chipText="@string/customTitle" />
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png) 
 
 ### Cutomizing Chip
 
 ```xml
-    app:closable="true"
+    app:mcv_closable="true"
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/closable.png)
 
 ```xml
-    app:selectable="true"
+    app:mcv_selectable="true"
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/selectable.png)
 
 ```xml
-    app:hasIcon="true"
-    app:chipIcon="@drawable/customIcon"
+    app:mcv_hasIcon="true"
+    app:mcv_chipIcon="@drawable/customIcon"
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/hasIcon.png)
 
 ```xml
-    app:hasIcon="true"
-    app:chipIcon="@drawable/customIcon"
-    app:closable="true"
+    app:mcv_hasIcon="true"
+    app:mcv_chipIcon="@drawable/customIcon"
+    app:mcv_closable="true"
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/hasIconClosable.png)
 
 ```xml
-    app:backgroundColor="@color/customChipBackgroundColor"
-    app:closeColor="@color/customCloseIconColor"
-    app:selectedBackgroundColor="@color/customSelectedChipColor"
-    app:textColor="@color/customTitleColor"
+    app:mcv_backgroundColor="@color/customChipBackgroundColor"
+    app:mcv_closeColor="@color/customCloseIconColor"
+    app:mcv_selectedBackgroundColor="@color/customSelectedChipColor"
+    app:mcv_textColor="@color/customTitleColor"
 ```
 
 |![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/custom1.png)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/custom2.png)|
@@ -75,17 +75,17 @@ Add following line of code to your module(app) level gradle file
 
 |Custom Atributes             |Description                                 |
 |-----------------------------|--------------------------------------------|
-|`app:chipText`               |Text label of Chip                          |
-|`app:textColor`              |Custom color for text label                 |
-|`app:backgroundColor`        |Custom background color                     |
-|`app:selectedBackgroundColor`|Custom background color when selected       |
-|`app:hasIcon`                |Chip with icon                              |
-|`app:chipIcon`               |Icon resource for Chip                      |
-|`app:closable`               |Chip with close button                      |
-|`app:closeColor`             |Custom color for close button               |
-|`app:selectable`             |Chip with selection button                  |
-|`app:selectedTextColor`      |Custom color for label when selected        |
-|`app:selectedCloseColor`     |Custom color for close button when selected |
+|`app:mcv_chipText`               |Text label of Chip                          |
+|`app:mcv_textColor`              |Custom color for text label                 |
+|`app:mcv_backgroundColor`        |Custom background color                     |
+|`app:mcv_selectedBackgroundColor`|Custom background color when selected       |
+|`app:mcv_hasIcon`                |Chip with icon                              |
+|`app:mcv_chipIcon`               |Icon resource for Chip                      |
+|`app:mcv_closable`               |Chip with close button                      |
+|`app:mcv_closeColor`             |Custom color for close button               |
+|`app:mcv_selectable`             |Chip with selection button                  |
+|`app:mcv_selectedTextColor`      |Custom color for label when selected        |
+|`app:mcv_selectedCloseColor`     |Custom color for close button when selected |
 
 ### Setting Listeners
 
