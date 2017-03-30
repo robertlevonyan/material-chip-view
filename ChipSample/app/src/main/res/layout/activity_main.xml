@@ -18,45 +18,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        app:backgroundColor="@color/colorFootball"
-        app:chipIcon="@drawable/football"
-        app:chipText="@string/football"
-        app:closeColor="@color/colorFootballSelected"
-        app:hasIcon="true"
-        app:selectable="true"
-
-        app:closable="true"
-        app:selectedCloseColor="@color/colorFootballSelected"
-        app:selectedTextColor="@color/colorFootballSelected"
-
-        app:selectedBackgroundColor="@color/colorFootballSelected"
-        app:textColor="@color/colorFootballSelected" />
+        app:mcv_backgroundColor="@color/colorFootball"
+        app:mcv_chipIcon="@drawable/football"
+        app:mcv_chipText="@string/football"
+        app:mcv_closeColor="@color/colorFootballSelected"
+        app:mcv_hasIcon="true"
+        app:mcv_selectable="true"
+        app:mcv_closable="true"
+        app:mcv_selectedCloseColor="@color/colorFootballSelected"
+        app:mcv_selectedTextColor="@color/colorFootballSelected"
+        app:mcv_selectedBackgroundColor="@color/colorFootballSelected"
+        app:mcv_textColor="@color/colorFootballSelected" />
 
     <com.robertlevonyan.views.chip.Chip
         android:id="@+id/basketball_chip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        app:backgroundColor="@color/colorBasketball"
-        app:chipIcon="@drawable/basketball"
-        app:chipText="@string/basketball"
-        app:closeColor="@color/colorBasketballSelected"
-        app:hasIcon="true"
-        app:selectable="true"
-        app:selectedBackgroundColor="@color/colorBasketballSelected"
-        app:textColor="@color/colorBasketballSelected" />
+        app:mcv_backgroundColor="@color/colorBasketball"
+        app:mcv_chipIcon="@drawable/basketball"
+        app:mcv_chipText="@string/basketball"
+        app:mcv_closeColor="@color/colorBasketballSelected"
+        app:mcv_hasIcon="true"
+        app:mcv_selectable="true"
+        app:mcv_selectedBackgroundColor="@color/colorBasketballSelected"
+        app:mcv_textColor="@color/colorBasketballSelected" />
 
     <com.robertlevonyan.views.chip.Chip
         android:id="@+id/tennis_chip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        app:backgroundColor="@color/colorTennis"
-        app:chipIcon="@drawable/tennis"
-        app:chipText="@string/tennis"
-        app:closeColor="@color/colorTennisSelected"
-        app:hasIcon="true"
-        app:selectable="true"
-        app:selectedBackgroundColor="@color/colorTennisSelected"
-        app:textColor="@color/colorTennisSelected" />
+        app:mcv_backgroundColor="@color/colorTennis"
+        app:mcv_chipIcon="@drawable/tennis"
+        app:mcv_chipText="@string/tennis"
+        app:mcv_closeColor="@color/colorTennisSelected"
+        app:mcv_hasIcon="true"
+        app:mcv_selectable="true"
+        app:mcv_selectedBackgroundColor="@color/colorTennisSelected"
+        app:mcv_textColor="@color/colorTennisSelected" />
 </LinearLayout>

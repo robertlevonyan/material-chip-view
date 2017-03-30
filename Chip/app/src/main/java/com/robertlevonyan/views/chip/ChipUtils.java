@@ -18,8 +18,8 @@ import android.widget.ImageView;
  */
 
 class ChipUtils {
-    public static final int IMAGE_ID = 0x00910518;
-    public static final int TEXT_ID = 0x00059118;
+    public static final int IMAGE_ID = R.id.chip_image;
+    public static final int TEXT_ID = R.id.chip_text;
 
     public static Bitmap getScaledBitmap(Context context, Bitmap bitmap) {
         int width = (int) context.getResources().getDimension(R.dimen.chip_height);
