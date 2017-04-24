@@ -135,14 +135,15 @@ public class Chip extends RelativeLayout {
     }
 
     private void onSelectTouchDown() {
-        clicked = true;
+        clicked = !clicked;
         initBackgroundColor();
         initTextView();
         selectIcon.setImageResource(R.drawable.ic_select);
-        setIconColor(selectIcon, selectedCloseColor);
+        setIconColor(selectIcon, clicked ? selectedCloseColor : closeColor);
     }
 
     private void onSelectTouchUp(View v) {
+        selected = !clicked;
         if (selected) {
             clicked = false;
             initBackgroundColor();
@@ -218,7 +219,7 @@ public class Chip extends RelativeLayout {
         selectIcon.setLayoutParams(selectIconParams);
         selectIcon.setScaleType(ImageView.ScaleType.CENTER);
         selectIcon.setImageResource(R.drawable.ic_select);
-        setIconColor(selectIcon, closeColor);
+        setIconColor(selectIcon, clicked ? selectedCloseColor : closeColor);
 
         initSelectClick();
 
@@ -428,6 +429,10 @@ public class Chip extends RelativeLayout {
     public void setSelectable(boolean selectable) {
         this.selectable = selectable;
         this.closable = false;
+    }
+
+    public void setClicked(boolean clicked) {
+        this.clicked = clicked;
     }
 
     public void setOnCloseClickListener(OnCloseClickListener onCloseClickListener) {

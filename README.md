@@ -34,7 +34,7 @@ Add following line of code to your module(app) level gradle file
     android:layout_height="wrap_content"
     app:mcv_chipText="@string/customTitle" />
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png) 
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png)
 
 ### Cutomizing Chip
 
@@ -146,6 +146,7 @@ On Select button click listener
         chip.setClosable(); //Set Chip has close button
         chip.setCloseColor(); //Set custom color for close button
         chip.setSelectable(); //Set Chip has selection button
+        chip.setClicked(); // Set Chip as clicked
         chip.setSelectedTextColor(); //Set custom color for label when selected
         chip.setSelectedCloseColor(); //Set custom color for close button when selected
 ```
@@ -166,7 +167,7 @@ First version of library
     Material Chip View©
     Copyright 2017 Robert Levonyan
     Url: https://github.com/robertlevonyan/materialChipView
-    
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
@@ -179,4 +180,3 @@ First version of library
     See the License for the specific language governing permissions and
     limitations under the License.
 ```
-    
