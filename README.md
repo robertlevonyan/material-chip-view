@@ -11,7 +11,7 @@ Material Chip view. Can be used as tags for categories, contacts or creating tex
 Add following line of code to your module(app) level gradle file
 
 ```java
-    compile 'com.robertlevonyan.view:MaterialChipView:1.0.1'
+    compile 'com.robertlevonyan.view:MaterialChipView:1.1.1'
 ```
 
 #### Maven:
@@ -20,7 +20,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
     <type>pom</type>
   </dependency>
 ```
@@ -73,8 +73,8 @@ Add following line of code to your module(app) level gradle file
 
 ### Attributes
 
-|Custom Atributes             |Description                                 |
-|-----------------------------|--------------------------------------------|
+|Custom Atributes                 |Description                                 |
+|---------------------------------|--------------------------------------------|
 |`app:mcv_chipText`               |Text label of Chip                          |
 |`app:mcv_textColor`              |Custom color for text label                 |
 |`app:mcv_backgroundColor`        |Custom background color                     |
@@ -85,7 +85,12 @@ Add following line of code to your module(app) level gradle file
 |`app:mcv_closeColor`             |Custom color for close button               |
 |`app:mcv_selectable`             |Chip with selection button                  |
 |`app:mcv_selectedTextColor`      |Custom color for label when selected        |
-|`app:mcv_selectedCloseColor`     |Custom color for close button when selected |
+|`app:mcv_cornerRadius`           |Change the corner radius of your Chip       |
+|`app:mcv_strokeSize`             |Add stroke to your Chip                     |
+|`app:mcv_strokeColor`            |Choose a custom stroke color for your Chip  |
+|`app:mcv_iconText`               |Instead of an image create icon from String |
+|`app:mcv_iconTextColor`          |Select a color for your String icon         |
+|`app:mcv_iconTextBackgroundColor`|Select a background color for String icon   |
 
 ### Setting Listeners
 
@@ -149,9 +154,20 @@ On Select button click listener
         chip.setClicked(); // Set Chip as clicked
         chip.setSelectedTextColor(); //Set custom color for label when selected
         chip.setSelectedCloseColor(); //Set custom color for close button when selected
+        chip.setCornerRadius(); // Set corner radius of your Chip
+        chip.setStrokeSize(); // Set width of stroke
+        chip.setStrokeColor(); // Set stroke color for your Chip
+        chip.setIconText(); // Set Chip icon text, text color and background color
 ```
 
 ## Versions
+
+#### 1.1.1
+
+Updated version of Material Chip View:
+    - the attribute names are changed to escape conflicts with other libs
+    - added new features like customizable corner radius and stroke
+    - recreation issue fixed for post Lollipop versions
 
 #### 1.0.1
 
