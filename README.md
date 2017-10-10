@@ -11,7 +11,7 @@ Material Chip view. Can be used as tags for categories, contacts or creating tex
 Add following line of code to your module(app) level gradle file
 
 ```java
-    compile 'com.robertlevonyan.view:MaterialChipView:1.1.1'
+    compile 'com.robertlevonyan.view:MaterialChipView:1.1.2'
 ```
 
 #### Maven:
@@ -161,6 +161,10 @@ On Select button click listener
 ```
 
 ## Versions
+
+#### 1.1.2
+
+Icon text issue fixed
 
 #### 1.1.1
 
