@@ -1,12 +1,15 @@
 package com.robertlevonyan.views.chip;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.PaintDrawable;
 import android.os.Build;
+import android.support.annotation.Px;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -18,7 +21,9 @@ import android.widget.TextView;
 
 import static com.robertlevonyan.views.chip.ChipUtils.IMAGE_ID;
 import static com.robertlevonyan.views.chip.ChipUtils.TEXT_ID;
+import static com.robertlevonyan.views.chip.ChipUtils.generateText;
 import static com.robertlevonyan.views.chip.ChipUtils.getCircleBitmap;
+import static com.robertlevonyan.views.chip.ChipUtils.getCircleBitmapWithText;
 import static com.robertlevonyan.views.chip.ChipUtils.getScaledBitmap;
 import static com.robertlevonyan.views.chip.ChipUtils.getSquareBitmap;
 import static com.robertlevonyan.views.chip.ChipUtils.setIconColor;
@@ -28,9 +33,11 @@ import static com.robertlevonyan.views.chip.ChipUtils.setIconColor;
  */
 
 public class Chip extends RelativeLayout {
+
     private String chipText;
     private boolean hasIcon;
     private Drawable chipIcon;
+    private Bitmap chipIconBitmap;
     private boolean closable;
     private boolean selectable;
     private int backgroundColor;
@@ -39,12 +46,19 @@ public class Chip extends RelativeLayout {
     private int selectedTextColor;
     private int closeColor;
     private int selectedCloseColor;
+    private int cornerRadius;
+    private int strokeSize;
+    private int strokeColor;
+    private String iconText;
+    private int iconTextColor;
+    private int iconTextBackgroundColor;
 
     private ImageView closeIcon;
     private ImageView selectIcon;
 
     private boolean clicked;
     private boolean selected;
+    private boolean isCreated;
 
     private OnCloseClickListener onCloseClickListener;
     private OnSelectClickListener onSelectClickListener;
@@ -63,6 +77,7 @@ public class Chip extends RelativeLayout {
         super(context, attrs, defStyleAttr);
 
         initTypedArray(attrs);
+
         initChipClick();
     }
 
@@ -80,7 +95,7 @@ public class Chip extends RelativeLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !isCreated) {
             buildView();
         }
     }
@@ -100,12 +115,13 @@ public class Chip extends RelativeLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-	if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && !isCreated) {
             buildView();
         }
     }
 
     private void buildView() {
+        isCreated = true;
         initBackgroundColor();
         initTextView();
         initImageIcon();
@@ -135,15 +151,14 @@ public class Chip extends RelativeLayout {
     }
 
     private void onSelectTouchDown() {
-        clicked = !clicked;
+        clicked = true;
         initBackgroundColor();
         initTextView();
         selectIcon.setImageResource(R.drawable.ic_select);
-        setIconColor(selectIcon, clicked ? selectedCloseColor : closeColor);
+        setIconColor(selectIcon, selectedCloseColor);
     }
 
     private void onSelectTouchUp(View v) {
-        selected = !clicked;
         if (selected) {
             clicked = false;
             initBackgroundColor();
@@ -157,6 +172,7 @@ public class Chip extends RelativeLayout {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initCloseClick() {
         closeIcon.setOnTouchListener(new OnTouchListener() {
             @Override
@@ -176,6 +192,12 @@ public class Chip extends RelativeLayout {
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean performClick() {
+        super.performClick();
+        return true;
     }
 
     private void onCloseTouchDown() {
@@ -219,7 +241,7 @@ public class Chip extends RelativeLayout {
         selectIcon.setLayoutParams(selectIconParams);
         selectIcon.setScaleType(ImageView.ScaleType.CENTER);
         selectIcon.setImageResource(R.drawable.ic_select);
-        setIconColor(selectIcon, clicked ? selectedCloseColor : closeColor);
+        setIconColor(selectIcon, closeColor);
 
         initSelectClick();
 
@@ -271,6 +293,15 @@ public class Chip extends RelativeLayout {
             bitmap = getScaledBitmap(getContext(), bitmap);
             icon.setImageBitmap(getCircleBitmap(getContext(), bitmap));
         }
+        if (chipIconBitmap != null) {
+            chipIconBitmap = getSquareBitmap(chipIconBitmap);
+            icon.setImageBitmap(getCircleBitmap(getContext(), chipIconBitmap));
+            icon.bringToFront();
+        }
+        if (iconText != null && !iconText.equals("")) {
+            Bitmap textBitmap = getCircleBitmapWithText(getContext(), iconText, iconTextColor, iconTextBackgroundColor);
+            icon.setImageBitmap(textBitmap);
+        }
 
         icon.setOnClickListener(new OnClickListener() {
             @Override
@@ -295,8 +326,8 @@ public class Chip extends RelativeLayout {
             chipTextParams.addRule(CENTER_IN_PARENT);
         }
 
-        int startMargin = hasIcon ? (int) getResources().getDimension(R.dimen.chip_icon_horizontal_margin) : (int) getResources().getDimension(R.dimen.chip_horizontal_padding);
-        int endMargin = closable || selectable ? 0 : (int) getResources().getDimension(R.dimen.chip_horizontal_padding);
+        @Px int startMargin = hasIcon ? (int) getResources().getDimension(R.dimen.chip_icon_horizontal_margin) : (int) getResources().getDimension(R.dimen.chip_horizontal_padding);
+        @Px int endMargin = closable || selectable ? 0 : (int) getResources().getDimension(R.dimen.chip_horizontal_padding);
         chipTextParams.setMargins(
                 startMargin,
                 0,
@@ -313,8 +344,12 @@ public class Chip extends RelativeLayout {
     }
 
     private void initBackgroundColor() {
-        PaintDrawable bgDrawable = new PaintDrawable(clicked ? selectedBackgroundColor : backgroundColor);
-        bgDrawable.setCornerRadius(getResources().getDimension(R.dimen.chip_height) / 2);
+        GradientDrawable bgDrawable = new GradientDrawable();
+        bgDrawable.setShape(GradientDrawable.RECTANGLE);
+        bgDrawable.setCornerRadii(new float[]{cornerRadius, cornerRadius, cornerRadius, cornerRadius,
+                cornerRadius, cornerRadius, cornerRadius, cornerRadius});
+        bgDrawable.setColor(clicked ? selectedBackgroundColor : backgroundColor);
+        bgDrawable.setStroke(strokeSize, strokeColor);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             setBackground(bgDrawable);
@@ -337,6 +372,12 @@ public class Chip extends RelativeLayout {
         selectedTextColor = ta.getColor(R.styleable.Chip_mcv_selectedTextColor, ContextCompat.getColor(getContext(), R.color.colorChipTextClicked));
         closeColor = ta.getColor(R.styleable.Chip_mcv_closeColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseInactive));
         selectedCloseColor = ta.getColor(R.styleable.Chip_mcv_selectedCloseColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked));
+        cornerRadius = (int) ta.getDimension(R.styleable.Chip_mcv_cornerRadius, getResources().getDimension(R.dimen.chip_height) / 2);
+        strokeSize = (int) ta.getDimension(R.styleable.Chip_mcv_strokeSize, 0);
+        strokeColor = ta.getColor(R.styleable.Chip_mcv_strokeColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked));
+        iconText = ta.getString(R.styleable.Chip_mcv_iconText);
+        iconTextColor = ta.getColor(R.styleable.Chip_mcv_iconTextColor, ContextCompat.getColor(getContext(), R.color.colorChipBackgroundClicked));
+        iconTextBackgroundColor = ta.getColor(R.styleable.Chip_mcv_iconTextColor, ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked));
 
         ta.recycle();
     }
@@ -363,6 +404,10 @@ public class Chip extends RelativeLayout {
 
     public void setChipIcon(Drawable chipIcon) {
         this.chipIcon = chipIcon;
+    }
+
+    public void setChipIcon(Bitmap chipIcon) {
+        this.chipIconBitmap = chipIcon;
     }
 
     public boolean isClosable() {
@@ -422,6 +467,14 @@ public class Chip extends RelativeLayout {
         this.selectedCloseColor = selectedCloseColor;
     }
 
+    public int getCornerRadius() {
+        return cornerRadius;
+    }
+
+    public void setCornerRadius(int cornerRadius) {
+        this.cornerRadius = cornerRadius;
+    }
+
     public boolean isSelectable() {
         return selectable;
     }
@@ -431,8 +484,30 @@ public class Chip extends RelativeLayout {
         this.closable = false;
     }
 
-    public void setClicked(boolean clicked) {
-        this.clicked = clicked;
+    public void setStrokeSize(int strokeSize) {
+        this.strokeSize = strokeSize;
+    }
+
+    public void setStrokeColor(int strokeColor) {
+        this.strokeColor = strokeColor;
+    }
+
+    public int getStrokeSize() {
+        return strokeSize;
+    }
+
+    public int getStrokeColor() {
+        return strokeColor;
+    }
+
+    public String getIconText() {
+        return iconText;
+    }
+
+    public void setIconText(String iconText, int iconTextColor, int iconTextBackgroundColor) {
+        this.iconText = generateText(iconText);
+        this.iconTextColor = iconTextColor == 0 ? ContextCompat.getColor(getContext(), R.color.colorChipBackgroundClicked) : iconTextColor;
+        this.iconTextBackgroundColor = iconTextBackgroundColor == 0 ? ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked) : iconTextBackgroundColor;
     }
 
     public void setOnCloseClickListener(OnCloseClickListener onCloseClickListener) {

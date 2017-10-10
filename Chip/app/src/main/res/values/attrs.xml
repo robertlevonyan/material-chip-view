@@ -12,5 +12,11 @@
         <attr name="mcv_selectedTextColor" format="color" />
         <attr name="mcv_closeColor" format="color" />
         <attr name="mcv_selectedCloseColor" format="color" />
+        <attr name="mcv_cornerRadius" format="dimension" />
+        <attr name="mcv_strokeSize" format="dimension" />
+        <attr name="mcv_strokeColor" format="color" />
+        <attr name="mcv_iconText" format="string" />
+        <attr name="mcv_iconTextColor" format="color" />
+        <attr name="mcv_iconTextBackgroundColor" format="color" />
     </declare-styleable>
 </resources>

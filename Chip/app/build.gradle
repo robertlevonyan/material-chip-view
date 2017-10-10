@@ -2,11 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -30,7 +30,7 @@ dependencies {
 publish {
     groupId = 'com.robertlevonyan.view'
     artifactId = 'MaterialChipView'
-    publishVersion = '1.0.1'
+    publishVersion = '1.1.2'
     desc = 'Material Chip view. Can be used as tags for categories, contacts or creating text clouds'
     licences = ['Apache-2.0']
     website = 'https://github.com/robertlevonyan/materialChipView'

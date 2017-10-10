@@ -18,8 +18,8 @@ import android.widget.ImageView;
  */
 
 class ChipUtils {
-    public static final int IMAGE_ID = R.id.chip_image;
-    public static final int TEXT_ID = R.id.chip_text;
+    public static final int IMAGE_ID = 0x00910518;
+    public static final int TEXT_ID = 0x00059118;
 
     public static Bitmap getScaledBitmap(Context context, Bitmap bitmap) {
         int width = (int) context.getResources().getDimension(R.dimen.chip_height);
@@ -68,6 +68,67 @@ class ChipUtils {
         canvas.drawBitmap(bitmap, rect, rect, paint);
 
         return output;
+    }
+
+    public static Bitmap getCircleBitmapWithText(Context context, String text, int bgColor, int textColor) {
+        int width = (int) context.getResources().getDimension(R.dimen.chip_height);
+        final Bitmap output = Bitmap.createBitmap(width, width, Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(output);
+
+        final Paint paint = new Paint();
+        final Paint textPaint = new Paint();
+        final Rect rect = new Rect(0, 0, width, width);
+        final RectF rectF = new RectF(rect);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(bgColor);
+        canvas.drawOval(rectF, paint);
+        textPaint.setColor(textColor);
+        textPaint.setStrokeWidth(30);
+        textPaint.setTextSize(50);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
+        textPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
+
+        int xPos = (int) ((canvas.getWidth() / 3) + ((textPaint.descent() + textPaint.ascent()) / 2));
+        int yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
+
+        canvas.drawBitmap(output, rect, rect, paint);
+        canvas.drawText(text, xPos, yPos, textPaint);
+
+        return output;
+    }
+
+    public static String generateText(String iconText) {
+        if (iconText.length() == 2) {
+            return iconText;
+        }
+
+        String[] parts = iconText.split(" ");
+        if (parts.length == 1) {
+            String text = parts[0];
+            text = text.substring(0, 2);
+
+            String f = text.substring(0, 1);
+            String s = text.substring(1, 2);
+
+            f = f.toUpperCase();
+            s = s.toLowerCase();
+
+            text = f.concat(s);
+
+            return text;
+        }
+        String first = parts[0];
+        String second = parts[1];
+
+        first = first.substring(0, 1);
+        first = first.toUpperCase();
+        second = second.substring(0, 1);
+        second = second.toUpperCase();
+
+        return first.concat(second);
+
     }
 
     public static void setIconColor(ImageView icon, int color) {
