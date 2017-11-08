@@ -2,7 +2,7 @@
 
 Material Chip view. Can be used as tags for categories, contacts or creating text clouds.
 
-[![Android Arsenal](https://github.com/robertlevonyan/materialChipView/blob/master/Images/aa.png)](https://android-arsenal.com/details/1/5396)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396)
 
 ## Setup
 
@@ -20,7 +20,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <type>pom</type>
   </dependency>
 ```
