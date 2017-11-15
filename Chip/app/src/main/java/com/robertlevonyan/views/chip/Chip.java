@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.PaintDrawable;
 import android.os.Build;
 import android.support.annotation.Px;
 import android.support.v4.content.ContextCompat;
@@ -228,7 +227,7 @@ public class Chip extends RelativeLayout {
         selectIcon = new ImageView(getContext());
 
 
-        LayoutParams selectIconParams = new LayoutParams((int) getResources().getDimension(R.dimen.chip_close_icon_size2), (int) getResources().getDimension(R.dimen.chip_close_icon_size2));
+        LayoutParams selectIconParams = new LayoutParams((int) getResources().getDimension(R.dimen.chip_close_icon_size), (int) getResources().getDimension(R.dimen.chip_close_icon_size));
         selectIconParams.addRule(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 ? END_OF : RIGHT_OF, TEXT_ID);
         selectIconParams.addRule(CENTER_VERTICAL);
         selectIconParams.setMargins(
@@ -255,7 +254,7 @@ public class Chip extends RelativeLayout {
 
         closeIcon = new ImageView(getContext());
 
-        LayoutParams closeIconParams = new LayoutParams((int) getResources().getDimension(R.dimen.chip_close_icon_size2), (int) getResources().getDimension(R.dimen.chip_close_icon_size2));
+        LayoutParams closeIconParams = new LayoutParams((int) getResources().getDimension(R.dimen.chip_close_icon_size), (int) getResources().getDimension(R.dimen.chip_close_icon_size));
         closeIconParams.addRule(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 ? END_OF : RIGHT_OF, TEXT_ID);
         closeIconParams.addRule(CENTER_VERTICAL);
         closeIconParams.setMargins(
