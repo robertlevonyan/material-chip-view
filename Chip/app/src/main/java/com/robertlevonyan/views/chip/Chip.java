@@ -127,6 +127,15 @@ public class Chip extends RelativeLayout {
         initImageIcon();
         initCloseIcon();
         initSelectIcon();
+        initSelected();
+    }
+
+    private void initSelected() {
+        if (selected) {
+            onSelectTouchDown();
+        } else {
+            onSelectTouchUp(selectIcon);
+        }
     }
 
     private void initSelectClick() {
@@ -508,6 +517,15 @@ public class Chip extends RelativeLayout {
         this.iconText = generateText(iconText);
         this.iconTextColor = iconTextColor == 0 ? ContextCompat.getColor(getContext(), R.color.colorChipBackgroundClicked) : iconTextColor;
         this.iconTextBackgroundColor = iconTextBackgroundColor == 0 ? ContextCompat.getColor(getContext(), R.color.colorChipCloseClicked) : iconTextBackgroundColor;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.setSelectable(selected);
+        this.selected = selected;
     }
 
     public void setOnCloseClickListener(OnCloseClickListener onCloseClickListener) {
