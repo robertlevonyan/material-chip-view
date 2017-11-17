@@ -11,7 +11,7 @@ Material Chip view. Can be used as tags for categories, contacts or creating tex
 Add following line of code to your module(app) level gradle file
 
 ```java
-    implementation 'com.robertlevonyan.view:MaterialChipView:1.1.2'
+    implementation 'com.robertlevonyan.view:MaterialChipView:1.1.3'
 ```
 
 #### Maven:
@@ -20,7 +20,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <type>pom</type>
   </dependency>
 ```
@@ -152,6 +152,7 @@ On Select button click listener
         chip.setCloseColor(); //Set custom color for close button
         chip.setSelectable(); //Set Chip has selection button
         chip.setClicked(); // Set Chip as clicked
+        chip.setSelected(); // Set Chip selected
         chip.setSelectedTextColor(); //Set custom color for label when selected
         chip.setSelectedCloseColor(); //Set custom color for close button when selected
         chip.setCornerRadius(); // Set corner radius of your Chip
@@ -161,6 +162,10 @@ On Select button click listener
 ```
 
 ## Versions
+
+#### 1.1.3
+
+Selection option added
 
 #### 1.1.2
 
@@ -180,6 +185,17 @@ Recreation issues are fixed
 ### 1.0.0
 
 First version of library
+
+## Contact
+
+Pull requests are more than welcome.
+
+- **Email**: bigbob1991@gmail.com
+- **Website**: https://robertlevonyan.com/
+- **Medium**: https://medium.com/@RobertLevonyan
+- **Twitter**: https://twitter.com/@RobertLevonyan
+- **Facebook**: https://facebook.com/robert.levonyan
+- **Google Play**: https://play.google.com/store/apps/dev?id=5477562049350283357
 
 ## Licence
 
