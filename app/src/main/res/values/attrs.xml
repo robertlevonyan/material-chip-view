@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Chip">
+        <attr name="mcv_chipText" format="string" />
+        <attr name="mcv_hasIcon" format="boolean" />
+        <attr name="mcv_chipIcon" format="integer" />
+        <attr name="mcv_closable" format="boolean" />
+        <attr name="mcv_selectable" format="boolean" />
+        <attr name="mcv_hasSelectIcon" format="boolean" />
+        <attr name="mcv_backgroundColor" format="color" />
+        <attr name="mcv_selectedBackgroundColor" format="color" />
+        <attr name="mcv_textColor" format="color" />
+        <attr name="mcv_selectedTextColor" format="color" />
+        <attr name="mcv_closeColor" format="color" />
+        <attr name="mcv_selectedCloseColor" format="color" />
+        <attr name="mcv_cornerRadius" format="dimension" />
+        <attr name="mcv_strokeSize" format="dimension" />
+        <attr name="mcv_strokeColor" format="color" />
+        <attr name="mcv_iconText" format="string" />
+        <attr name="mcv_iconTextColor" format="color" />
+        <attr name="mcv_iconTextBackgroundColor" format="color" />
+    </declare-styleable>
+</resources>
