@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import static com.robertlevonyan.views.chip.ChipUtils.IMAGE_ID;
 import static com.robertlevonyan.views.chip.ChipUtils.TEXT_ID;
 import static com.robertlevonyan.views.chip.ChipUtils.generateText;
@@ -150,7 +149,7 @@ public class Chip extends RelativeLayout {
     }
 
     private void initSelectClick() {
-        chipTextView.setOnTouchListener(new OnTouchListener() {
+        (hasSelectIcon ? selectIcon : this).setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
@@ -425,12 +424,12 @@ public class Chip extends RelativeLayout {
         return chipIcon;
     }
 
-    public void setChipIcon(Bitmap chipIcon) {
-        this.chipIconBitmap = chipIcon;
-    }
-
     public void setChipIcon(Drawable chipIcon) {
         this.chipIcon = chipIcon;
+    }
+
+    public void setChipIcon(Bitmap chipIcon) {
+        this.chipIconBitmap = chipIcon;
     }
 
     public boolean isClosable() {
