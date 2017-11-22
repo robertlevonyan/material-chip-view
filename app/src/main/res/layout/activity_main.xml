@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constraintLayout"
+    tools:context="com.danteandroid.demo.MainActivity">
+
+    <com.robertlevonyan.views.chip.Chip
+        android:id="@+id/chip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mcv_chipText="全部"/>
+    <com.robertlevonyan.views.chip.Chip
+        android:id="@+id/chip1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:layout_constraintLeft_toRightOf="@id/chip"
+        app:mcv_chipText="搞笑"/>
+
+</android.support.constraint.ConstraintLayout>
