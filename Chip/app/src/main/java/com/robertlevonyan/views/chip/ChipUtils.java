@@ -70,6 +70,17 @@ class ChipUtils {
         return output;
     }
 
+    public static Bitmap crateBitmap(Context context, Drawable drawable) {
+        int size = (int) context.getResources().getDimension(R.dimen.chip_height);
+        final Bitmap output = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(output);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+
+        return output;
+    }
+
     public static Bitmap getCircleBitmapWithText(Context context, String text, int bgColor, int textColor) {
         int width = (int) context.getResources().getDimension(R.dimen.chip_height);
         final Bitmap output = Bitmap.createBitmap(width, width, Bitmap.Config.ARGB_8888);
