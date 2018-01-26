@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import static com.robertlevonyan.views.chip.ChipUtils.IMAGE_ID;
 import static com.robertlevonyan.views.chip.ChipUtils.TEXT_ID;
+import static com.robertlevonyan.views.chip.ChipUtils.crateBitmap;
 import static com.robertlevonyan.views.chip.ChipUtils.generateText;
 import static com.robertlevonyan.views.chip.ChipUtils.getCircleBitmap;
 import static com.robertlevonyan.views.chip.ChipUtils.getCircleBitmapWithText;
@@ -296,8 +297,8 @@ public class Chip extends RelativeLayout {
         icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         icon.setId(IMAGE_ID);
 
-        if (chipIcon != null && ((BitmapDrawable) chipIcon).getBitmap() != null) {
-            Bitmap bitmap = ((BitmapDrawable) chipIcon).getBitmap();
+        if (chipIcon != null) {
+            Bitmap bitmap = chipIcon instanceof BitmapDrawable ? ((BitmapDrawable) chipIcon).getBitmap() : crateBitmap(getContext(), chipIcon);
             bitmap = getSquareBitmap(bitmap);
             bitmap = getScaledBitmap(getContext(), bitmap);
             icon.setImageBitmap(getCircleBitmap(getContext(), bitmap));
