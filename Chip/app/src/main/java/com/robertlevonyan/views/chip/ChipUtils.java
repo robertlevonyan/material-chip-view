@@ -111,7 +111,7 @@ class ChipUtils {
     }
 
     public static String generateText(String iconText) {
-        if (iconText.length() == 2) {
+        if (iconText.length() <= 2) {
             return iconText;
         }
 
