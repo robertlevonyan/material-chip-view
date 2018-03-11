@@ -1,4 +1,4 @@
-# Material Chip View
+|# Material Chip View
 
 Material Chip view. Can be used as tags for categories, contacts or creating text clouds.
 
@@ -11,7 +11,7 @@ Material Chip view. Can be used as tags for categories, contacts or creating tex
 Add following line of code to your module(app) level gradle file
 
 ```java
-    implementation 'com.robertlevonyan.view:MaterialChipView:1.1.3'
+    implementation 'com.robertlevonyan.view:MaterialChipView:1.2.0'
 ```
 
 #### Maven:
@@ -20,10 +20,11 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>1.1.3</version>
+    <version>1.2.0</version>
     <type>pom</type>
   </dependency>
-```
+```|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.png)|
+|----------------------------------------------------------------------------------------------|-----------|
 
 ## Usage
 
@@ -62,7 +63,7 @@ Add following line of code to your module(app) level gradle file
     app:mcv_textColor="@color/customTitleColor"
 ```
 
-|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_0.jpg)|
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_1.jpg)|
 |----------------------------------------------------------------------------------------------|-----------|
 
 ### Attributes
