@@ -1,6 +1,7 @@
 # Material Chip View
 
-Material Chip view. Can be used as tags for categories, contacts or creating text clouds.
+|Material Chip view. Can be used as tags for categories, contacts or creating text clouds.|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.png)|
+|----------------------------------------------------------------------------------------------|-----------|
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-14%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=14) [ ![Download](https://api.bintray.com/packages/robertlevonyan/maven/MaterialChipView/images/download.svg) ](https://bintray.com/robertlevonyan/maven/MaterialChipView/_latestVersion)
 
@@ -11,7 +12,7 @@ Material Chip view. Can be used as tags for categories, contacts or creating tex
 Add following line of code to your module(app) level gradle file
 
 ```java
-    implementation 'com.robertlevonyan.view:MaterialChipView:1.1.3'
+    implementation 'com.robertlevonyan.view:MaterialChipView:1.2.0'
 ```
 
 #### Maven:
@@ -20,7 +21,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>1.1.3</version>
+    <version>1.2.0</version>
     <type>pom</type>
   </dependency>
 ```
@@ -34,32 +35,26 @@ Add following line of code to your module(app) level gradle file
     android:layout_height="wrap_content"
     app:mcv_chipText="@string/customTitle" />
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/sample.png)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.jpg)
 
 ### Cutomizing Chip
 
 ```xml
     app:mcv_closable="true"
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/closable.png)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_closable.jpg)
 
 ```xml
     app:mcv_selectable="true"
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/selectable.png)
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_selectable_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_selectable_1.jpg)|
+|----------------------------------------------------------------------------------------------|-----------|
 
 ```xml
     app:mcv_hasIcon="true"
     app:mcv_chipIcon="@drawable/customIcon"
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/hasIcon.png)
-
-```xml
-    app:mcv_hasIcon="true"
-    app:mcv_chipIcon="@drawable/customIcon"
-    app:mcv_closable="true"
-```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/hasIconClosable.png)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_icon.jpg)
 
 ```xml
     app:mcv_backgroundColor="@color/customChipBackgroundColor"
@@ -68,7 +63,7 @@ Add following line of code to your module(app) level gradle file
     app:mcv_textColor="@color/customTitleColor"
 ```
 
-|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/custom1.png)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/custom2.png)|
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_1.jpg)|
 |----------------------------------------------------------------------------------------------|-----------|
 
 ### Attributes
