@@ -34,7 +34,7 @@ import static com.robertlevonyan.views.chip.ChipUtils.setIconColor;
  */
 
 public class Chip extends RelativeLayout {
-private String chipText;
+    private String chipText;
     private boolean hasIcon;
     private Drawable chipIcon;
     private Bitmap chipIconBitmap;
@@ -55,6 +55,7 @@ private String chipText;
 
     private ImageView closeIcon;
     private ImageView selectIcon;
+    private TextView chipTextView;
 
     private boolean selected = false;
     private boolean isCreated;
@@ -284,7 +285,9 @@ private String chipText;
             return;
         }
 
-        TextView chipTextView = new TextView(getContext());
+        if (chipTextView == null) {
+            chipTextView = new TextView(getContext());
+        }
 
         LayoutParams chipTextParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if (hasIcon || closable || selectable) {
@@ -308,6 +311,7 @@ private String chipText;
         chipTextView.setText(chipText);
         chipTextView.setId(TEXT_ID);
 
+        this.removeView(chipTextView);
         this.addView(chipTextView);
     }
 
