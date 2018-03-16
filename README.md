@@ -189,7 +189,7 @@ First version of library
 
 Pull requests are more than welcome.
 
-- **Email**: bigbob1991@gmail.com
+- **Email**: me@robertlevonyan.com
 - **Website**: https://robertlevonyan.com/
 - **Medium**: https://medium.com/@RobertLevonyan
 - **Twitter**: https://twitter.com/@RobertLevonyan
