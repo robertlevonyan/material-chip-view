@@ -187,8 +187,6 @@ First version of library
 
 ## Contact
 
-Pull requests are more than welcome.
-
 - **Email**: me@robertlevonyan.com
 - **Website**: https://robertlevonyan.com/
 - **Medium**: https://medium.com/@RobertLevonyan
