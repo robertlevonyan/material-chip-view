@@ -1,4 +1,4 @@
-package com.robertlevonyan.views.chip;
+package com.robertlevonyan.examples.chips.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,15 +11,24 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.IdRes;
 import android.widget.ImageView;
 
+import com.robertlevonyan.examples.chips.R;
+
 /**
- * Created by robert on 3/1/17.
+ * Created by robert on 2/27/2017.
  */
 
-class ChipUtils {
+public class ChipUtils {
+
+    @IdRes
     public static final int IMAGE_ID = 0x00910518;
+    @IdRes
     public static final int TEXT_ID = 0x00059118;
+
+    private static int[] colors = {0xd32f2f, 0xC2185B, 0x7B1FA2, 0x512DA8, 0x303F9F, 0x1976D2, 0x0288D1, 0x0097A7, 0x00796B, 0x388E3C, 0x689F38,
+            0xAFB42B, 0xFBC02D, 0xFFA000, 0xF57C00, 0xE64A19, 0x5D4037, 0x616161, 0x455A64};
 
     public static Bitmap getScaledBitmap(Context context, Bitmap bitmap) {
         int width = (int) context.getResources().getDimension(R.dimen.chip_height);
@@ -70,17 +79,6 @@ class ChipUtils {
         return output;
     }
 
-    public static Bitmap crateBitmap(Context context, Drawable drawable) {
-        int size = (int) context.getResources().getDimension(R.dimen.chip_height);
-        final Bitmap output = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
-
-        Canvas canvas = new Canvas(output);
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-
-        return output;
-    }
-
     public static Bitmap getCircleBitmapWithText(Context context, String text, int bgColor, int textColor) {
         int width = (int) context.getResources().getDimension(R.dimen.chip_height);
         final Bitmap output = Bitmap.createBitmap(width, width, Bitmap.Config.ARGB_8888);
@@ -101,8 +99,15 @@ class ChipUtils {
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         textPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
 
-        int xPos = (int) ((canvas.getWidth() / 3) + ((textPaint.descent() + textPaint.ascent()) / 2));
-        int yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
+        int xPos;
+        int yPos;
+        if (text.length() == 1)  {
+            xPos = (int) ((canvas.getWidth() / 1.9) + ((textPaint.descent() + textPaint.ascent()) / 2));
+            yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
+        } else {
+            xPos = (int) ((canvas.getWidth() / 2.7) + ((textPaint.descent() + textPaint.ascent()) / 2));
+            yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
+        }
 
         canvas.drawBitmap(output, rect, rect, paint);
         canvas.drawText(text, xPos, yPos, textPaint);
@@ -111,7 +116,10 @@ class ChipUtils {
     }
 
     public static String generateText(String iconText) {
-        if (iconText.length() == 2) {
+        if (iconText.isEmpty()) {
+            throw new IllegalStateException("Icon text must have at least one symbol");
+        }
+        if (iconText.length() == 1 || iconText.length() == 2) {
             return iconText;
         }
 
