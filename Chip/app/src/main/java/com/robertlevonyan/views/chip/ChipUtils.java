@@ -1,4 +1,4 @@
-package com.robertlevonyan.views.chip;
+package com.robertlevonyan.examples.chips.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,7 +11,10 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.IdRes;
 import android.widget.ImageView;
+
+import com.robertlevonyan.examples.chips.R;
 
 /**
  * Created by robert on 2/27/2017.
@@ -19,8 +22,18 @@ import android.widget.ImageView;
 
 public class ChipUtils {
 
+<<<<<<< HEAD
     static final int IMAGE_ID = 0x00910518;
     static final int TEXT_ID = 0x00059118;
+
+    private static int[] colors = {0xd32f2f, 0xC2185B, 0x7B1FA2, 0x512DA8, 0x303F9F, 0x1976D2, 0x0288D1, 0x0097A7, 0x00796B, 0x388E3C, 0x689F38,
+            0xAFB42B, 0xFBC02D, 0xFFA000, 0xF57C00, 0xE64A19, 0x5D4037, 0x616161, 0x455A64};
+=======
+    @IdRes
+    public static final int IMAGE_ID = 0x00910518;
+    @IdRes
+    public static final int TEXT_ID = 0x00059118;
+>>>>>>> ac84a4cd160043f9b59bedd2a6786be0d185c598
 
     private static int[] colors = {0xd32f2f, 0xC2185B, 0x7B1FA2, 0x512DA8, 0x303F9F, 0x1976D2, 0x0288D1, 0x0097A7, 0x00796B, 0x388E3C, 0x689F38,
             0xAFB42B, 0xFBC02D, 0xFFA000, 0xF57C00, 0xE64A19, 0x5D4037, 0x616161, 0x455A64};
@@ -74,9 +87,15 @@ public class ChipUtils {
         return output;
     }
 
+<<<<<<< HEAD
     public static Bitmap getCircleBitmapWithText(Context context, String text, int textColor, int bgColor, float radius) {
         int size = context.getResources().getDimensionPixelSize(R.dimen.chip_height);
         final Bitmap output = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+=======
+    public static Bitmap getCircleBitmapWithText(Context context, String text, int bgColor, int textColor) {
+        int width = (int) context.getResources().getDimension(R.dimen.chip_height);
+        final Bitmap output = Bitmap.createBitmap(width, width, Bitmap.Config.ARGB_8888);
+>>>>>>> ac84a4cd160043f9b59bedd2a6786be0d185c598
         final Canvas canvas = new Canvas(output);
 
         final Paint paint = new Paint();
@@ -96,11 +115,19 @@ public class ChipUtils {
 
         int xPos;
         int yPos;
+<<<<<<< HEAD
         if (text.length() == 1) {
             xPos = (int) ((canvas.getWidth() / 2) + ((textPaint.descent() + textPaint.ascent()) / 2));
             yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
         } else {
             xPos = (int) ((canvas.getWidth() / 3) + ((textPaint.descent() + textPaint.ascent()) / 2));
+=======
+        if (text.length() == 1)  {
+            xPos = (int) ((canvas.getWidth() / 1.9) + ((textPaint.descent() + textPaint.ascent()) / 2));
+            yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
+        } else {
+            xPos = (int) ((canvas.getWidth() / 2.7) + ((textPaint.descent() + textPaint.ascent()) / 2));
+>>>>>>> ac84a4cd160043f9b59bedd2a6786be0d185c598
             yPos = (int) ((canvas.getHeight() / 2) - ((textPaint.descent() + textPaint.ascent()) / 2));
         }
 
