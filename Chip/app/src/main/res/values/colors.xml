@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorAccent">#D32F2F</color>
+
     <color name="colorChipBackground">#e0e0e0</color>
     <color name="colorChipBackgroundClicked">#424242</color>
     <color name="colorChipText">#424242</color>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Chip">
-        <attr name="mcv_chipText" format="string" />
-        <attr name="mcv_hasIcon" format="boolean" />
         <attr name="mcv_chipIcon" format="integer" />
         <attr name="mcv_closable" format="boolean" />
         <attr name="mcv_selectable" format="boolean" />

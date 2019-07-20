@@ -2,6 +2,7 @@
 <resources>
     <dimen name="chip_height">32dp</dimen>
     <dimen name="chip_horizontal_padding">12dp</dimen>
+    <dimen name="chip_vertical_padding">5dp</dimen>
     <dimen name="chip_icon_horizontal_margin">8dp</dimen>
     <dimen name="chip_close_horizontal_margin">4dp</dimen>
     <dimen name="chip_close_icon_size">18dp</dimen>
