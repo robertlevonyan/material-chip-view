@@ -12,7 +12,7 @@
 Add following line of code to your module(app) level gradle file
 
 ```java
-    implementation 'com.robertlevonyan.view:MaterialChipView:1.2.5'
+    implementation 'com.robertlevonyan.view:MaterialChipView:2.0.3'
 ```
 
 #### Maven:
@@ -21,7 +21,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>1.2.5</version>
+    <version>2.0.3</version>
     <type>pom</type>
   </dependency>
 ```
@@ -33,7 +33,7 @@ Add following line of code to your module(app) level gradle file
     android:id="@+id/chip"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:mcv_chipText="@string/customTitle" />
+    android:text="@string/customTitle" />
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.jpg)
 
@@ -51,7 +51,6 @@ Add following line of code to your module(app) level gradle file
 |----------------------------------------------------------------------------------------------|-----------|
 
 ```xml
-    app:mcv_hasIcon="true"
     app:mcv_chipIcon="@drawable/customIcon"
 ```
 ![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_icon.jpg)
@@ -70,11 +69,9 @@ Add following line of code to your module(app) level gradle file
 
 |Custom Atributes                 |Description                                 |
 |---------------------------------|--------------------------------------------|
-|`app:mcv_chipText`               |Text label of Chip                          |
 |`app:mcv_textColor`              |Custom color for text label                 |
 |`app:mcv_backgroundColor`        |Custom background color                     |
 |`app:mcv_selectedBackgroundColor`|Custom background color when selected       |
-|`app:mcv_hasIcon`                |Chip with icon                              |
 |`app:mcv_chipIcon`               |Icon resource for Chip                      |
 |`app:mcv_closable`               |Chip with close button                      |
 |`app:mcv_closeColor`             |Custom color for close button               |
@@ -89,76 +86,70 @@ Add following line of code to your module(app) level gradle file
 
 ### Setting Listeners
 
-```java
-    Chip chip = (Chip) findViewById(R.id.chip);
+```kotlin
+    val chip = findViewById(R.id.chip);
 ```
 Chip click listener
-```java
-    chip.setOnChipClickListener(new OnChipClickListener() {
-            @Override
-            public void onChipClick(View v) {
-                //Your action here...
-            }
-        });
-
+```kotlin
+    chip.setOnClickListener { view ->
+         //Your action here...
+    }
 ```
 
 On Close button click listener
-```java
-        chip.setOnCloseClickListener(new OnCloseClickListener() {
-            @Override
-            public void onCloseClick(View v) {
-                //Your action here...
-            }
-        });
+```kotlin
+    chip.setOnCloseClickListener { view ->
+         //Your action here...
+    }
 
 ```
 
 On Icon click listener
-```java
-        chip.setOnIconClickListener(new OnIconClickListener() {
-            @Override
-            public void onIconClick(View v) {
-                //Your action here...
-            }
-        });
+```kotlin
+    chip.setOnIconClickListener { view ->
+         //Your action here...
+    }
 
 ```
 
 On Select button click listener
-```java
-        chip.setOnSelectClickListener(new OnSelectClickListener() {
-            @Override
-            public void onSelectClick(View v, boolean selected) {
-                //Your action here...
-            }
-        });
+```kotlin
+    chip.setOnSelectClickListener { view: View, selected: Boolean ->
+         //Your action here...
+    }
 ```
-### Customizing Chip from Java
+### Customizing Chip from code
 
-```java
-        chip.setChipText(); // Set Chip label
-        chip.setTextColor(); // Set Chip label color
-        chip.changeBackgroundColor(); //Set custom background color
-        chip.changeSelectedBackgroundColor(); //Set custom background color when selected
-        chip.setHasIcon(); //Set chip has icon
-        chip.setChipIcon(); //Set Icon Drawable for Chip
-        chip.setClosable(); //Set Chip has close button
-        chip.setCloseColor(); //Set custom color for close button
-        chip.setSelectable(); //Set Chip has selection button
-        chip.setClicked(); // Set Chip as clicked
-        chip.setSelected(); // Set Chip selected
-        chip.setSelectedTextColor(); //Set custom color for label when selected
-        chip.setSelectedCloseColor(); //Set custom color for close button when selected
-        chip.setCornerRadius(); // Set corner radius of your Chip
-        chip.setStrokeSize(); // Set width of stroke
-        chip.setStrokeColor(); // Set stroke color for your Chip
-        chip.setIconText(); // Set Chip icon text, text color and background color
+```kotlin
+        chip.text = "My awesome Chip" // Set Chip label
+        chip.chipTextColor = chipTextColor // Set Chip label color
+        chip.chipBackgroundColor = chipBackgroundColor //Set custom background color
+        chip.chipSelectedBackgroundColor = chipSelectedBackgroundColor //Set custom background color when selected
+        chip.chipIcon = myIconDrawable //Set Icon Drawable for Chip
+        chip.chipIconBitmap = myIconBitmap //Set Icon Bitmap for Chip
+        chip.closable = true //Set Chip has close button
+        chip.chipCloseColor = chipCloseColor //Set custom color for close button
+        chip.chipSelectedCloseColor = chipSelectedCloseColor //Set custom color for close button on selected state
+        chip.selectable = false //Set Chip has selection button
+        chip.chipSelected = true // Set Chip selected
+        chip.chipSelectedTextColor = chipSelectedTextColor //Set custom color for label when selected
+        chip.cornerRadius = 5 // Set corner radius of your Chip
+        chip.strokeSize = 2 // Set width of stroke
+        chip.strokeColor = strokeColor // Set stroke color for your Chip
+        chip.setIconText(text, iconTextColor, iconTextBackgroundColor); // Set Chip icon text, text color and background color (in case of Kotlin iconTextColor and iconTextBackgroundColor have default value of 0)
 ```
 
 ## Versions
 
-### 1.2.1, 1.2.2
+#### 2.0.1 - 2.0.3
+
+Minor changes, some missing parts pushed
+
+### 2.0.0
+
+New version of the library. Fully rewritten with Kotlin and AndroidX ready
+
+#### 1.2.1, 1.2.2
 
 General bug fixed
 
