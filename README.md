@@ -147,7 +147,7 @@ Minor changes, some missing parts pushed
 
 ### 2.0.0
 
-New version of the library. Fully rewritten with Kotlin and AndroidX ready
+New version of the library. Fully rewritten with Kotlin and AndroidX ready 🤩 
 
 #### 1.2.1, 1.2.2
 
