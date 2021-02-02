@@ -14,7 +14,7 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 
-public class Chip : AppCompatTextView {
+class Chip : AppCompatTextView {
     var chipIcon: Drawable? = null
         set(value) {
             field = value
@@ -101,14 +101,14 @@ public class Chip : AppCompatTextView {
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initTypedArray(attrs)
+        attrs?.let { initTypedArray(it) } ?: initDefaultValues()
         buildView()
         setSingleLine()
         ellipsize = TextUtils.TruncateAt.END
     }
 
-    private fun initTypedArray(attrs: AttributeSet?) {
-        if (attrs == null || context == null) return
+    private fun initTypedArray(attrs: AttributeSet) {
+        if (context == null) return
 
         val ta = context.theme.obtainStyledAttributes(attrs, R.styleable.Chip, 0, 0)
 
@@ -130,6 +130,23 @@ public class Chip : AppCompatTextView {
         setIconText(iconText ?: "", iconTextColor, iconTextBackgroundColor)
 
         ta.recycle()
+
+        if (selectable && closable) {
+            throw IllegalStateException("Chip must be either selectable or closable. You set both true")
+        }
+    }
+
+    private fun initDefaultValues() {
+        chipBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackground)
+        chipSelectedBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+        chipTextColor = ContextCompat.getColor(context, R.color.colorChipText)
+        chipSelectedTextColor = ContextCompat.getColor(context, R.color.colorChipTextClicked)
+        chipCloseColor = ContextCompat.getColor(context, R.color.colorChipCloseInactive)
+        chipSelectedCloseColor = ContextCompat.getColor(context, R.color.colorChipCloseClicked)
+        cornerRadius = resources.getDimensionPixelSize(R.dimen.chip_height) / 2
+        val iconTextColor = ContextCompat.getColor(context, R.color.colorChipCloseClicked)
+        val iconTextBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+        setIconText(iconText ?: "", iconTextColor, iconTextBackgroundColor)
 
         if (selectable && closable) {
             throw IllegalStateException("Chip must be either selectable or closable. You set both true")

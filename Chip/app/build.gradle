@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 30
@@ -27,18 +26,11 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }
 
-publish {
-    groupId = 'com.robertlevonyan.view'
-    artifactId = 'MaterialChipView'
-    publishVersion = '2.0.6'
-    desc = 'Material Chip view. Can be used as tags for categories, contacts or creating text clouds'
-    licences = ['Apache-2.0']
-    website = 'https://github.com/robertlevonyan/materialChipView'
-    userOrg = ''
-}
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'

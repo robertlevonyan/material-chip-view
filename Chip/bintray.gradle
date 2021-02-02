@@ -1,0 +1,33 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = '2.0.7'
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load( new FileInputStream("local.properties"))
+
+// Bintray
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    pkg {
+        repo = 'maven'
+        name = 'MaterialChipView'
+        configurations = ['archives']
+        desc = 'Material Chip view. Can be used as tags for categories, contacts or creating text clouds.'
+        websiteUrl = 'https://github.com/robertlevonyan/materialChipView'
+        vcsUrl = 'https://github.com/robertlevonyan/materialChipView.git'
+        licenses = ["Apache-2.0"]
+        publish = true
+        publicDownloadNumbers = true
+    }
+}
