@@ -12,7 +12,7 @@
 Add following line of code to your module(app) level gradle file
 
 ```groovy
-    implementation 'com.robertlevonyan.view:MaterialChipView:2.0.4'
+    implementation 'com.robertlevonyan.view:MaterialChipView:2.0.6'
 ```
 
 #### Maven:
@@ -21,7 +21,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.6</version>
     <type>pom</type>
   </dependency>
 ```
