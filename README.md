@@ -80,6 +80,8 @@ Add following line of code to your module(app) level gradle file
 |`app:mcv_cornerRadius`           |Change the corner radius of your Chip       |
 |`app:mcv_strokeSize`             |Add stroke to your Chip                     |
 |`app:mcv_strokeColor`            |Choose a custom stroke color for your Chip  |
+|`app:mcv_selectedStrokeSize`     |Stroke size when selected                   |
+|`app:mcv_selectedStrokeColor`    |Custom stroke color when selected  		   |
 |`app:mcv_iconText`               |Instead of an image create icon from String |
 |`app:mcv_iconTextColor`          |Select a color for your String icon         |
 |`app:mcv_iconTextBackgroundColor`|Select a background color for String icon   |
@@ -136,6 +138,8 @@ On Select button click listener
         chip.cornerRadius = 5 // Set corner radius of your Chip
         chip.strokeSize = 2 // Set width of stroke
         chip.strokeColor = strokeColor // Set stroke color for your Chip
+        chip.selectedStrokeSize = 2 // Set width of stroke when selected
+        chip.selectedStrokeColor = selectedStrokeColor // Set stroke color for your Chip when selected
         chip.setIconText(text, iconTextColor, iconTextBackgroundColor); // Set Chip icon text, text color and background color (in case of Kotlin iconTextColor and iconTextBackgroundColor have default value of 0)
 ```
 
