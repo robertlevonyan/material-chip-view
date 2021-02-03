@@ -10,18 +10,18 @@ import android.widget.ImageView
 val IMAGE_ID = 0x00910518
 val TEXT_ID = 0x00059118
 
-val colors = arrayOf(0xd32f2f, 0xC2185B, 0x7B1FA2, 0x512DA8, 0x303F9F, 0x1976D2, 0x0288D1, 0x0097A7, 0x00796B, 0x388E3C, 0x689F38,
+internal val colors = arrayOf(0xd32f2f, 0xC2185B, 0x7B1FA2, 0x512DA8, 0x303F9F, 0x1976D2, 0x0288D1, 0x0097A7, 0x00796B, 0x388E3C, 0x689F38,
     0xAFB42B, 0xFBC02D, 0xFFA000, 0xF57C00, 0xE64A19, 0x5D4037, 0x616161, 0x455A64)
 
-fun Bitmap.getScaledBitmap(size: Int): Bitmap = Bitmap.createScaledBitmap(this, size, size, false)
+internal fun Bitmap.getScaledBitmap(size: Int): Bitmap = Bitmap.createScaledBitmap(this, size, size, false)
 
-fun Bitmap.getSquareBitmap(): Bitmap = if (width >= height) {
+internal fun Bitmap.getSquareBitmap(): Bitmap = if (width >= height) {
     Bitmap.createBitmap(this, width / 2 - height / 2, 0, height, height)
 } else {
     Bitmap.createBitmap(this, 0, height / 2 - width / 2, width, width)
 }
 
-fun Bitmap.getCircleBitmap(size: Int, radius: Float): Bitmap {
+internal fun Bitmap.getCircleBitmap(size: Int, radius: Float): Bitmap {
     val output = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
     val canvas = Canvas(output);
 
@@ -41,7 +41,7 @@ fun Bitmap.getCircleBitmap(size: Int, radius: Float): Bitmap {
     return output
 }
 
-fun getCircleBitmapWithText(size: Int, text: String, textColor: Int, bgColor: Int, radius: Float): Bitmap {
+internal fun getCircleBitmapWithText(size: Int, text: String, textColor: Int, bgColor: Int, radius: Float): Bitmap {
     val output = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(output)
 
@@ -75,7 +75,7 @@ fun getCircleBitmapWithText(size: Int, text: String, textColor: Int, bgColor: In
     return output
 }
 
-fun String.generateText(): String {
+internal fun String.generateText(): String {
     if (this.isEmpty()) {
         throw IllegalStateException("Icon text must have at least one symbol");
     }
@@ -99,7 +99,7 @@ fun String.generateText(): String {
     return "$first$second"
 }
 
-fun ImageView.setIconColor(color: Int) {
+internal fun ImageView.setIconColor(color: Int) {
     val iconDrawable = drawable
     iconDrawable?.mutate()?.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
     setImageDrawable(iconDrawable)
