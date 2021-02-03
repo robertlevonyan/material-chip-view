@@ -12,7 +12,7 @@
 Add following line of code to your module(app) level gradle file
 
 ```groovy
-    implementation 'com.robertlevonyan.view:MaterialChipView:2.0.7'
+    implementation 'com.robertlevonyan.view:MaterialChipView:<LATEST_VERSION>'
 ```
 
 #### Maven:
@@ -21,7 +21,7 @@ Add following line of code to your module(app) level gradle file
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
     <artifactId>MaterialChipView</artifactId>
-    <version>2.0.7</version>
+    <version>LATEST_VERSION</version>
     <type>pom</type>
   </dependency>
 ```
@@ -145,7 +145,7 @@ On Select button click listener
 
 ## Versions
 
-#### 2.0.8
+#### 2.1.0
 
 New update, now it is possible to make chip selectable without selection icon
 
