@@ -189,8 +189,12 @@ class Chip : AppCompatTextView {
     private fun createPaddings() {
         gravity = Gravity.CENTER
         val startPadding = if (chipIcon == null && chipIconBitmap == null && iconText == null) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else 0
-        val endPadding = if (selectable || closable) resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin) else resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
-        setPaddingRelative(startPadding, 0, if (chipSelectableWithoutIcon) startPadding else endPadding, 0)
+        val endPadding = when {
+          selectable || closable -> resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin)
+          chipSelectableWithoutIcon || iconText != null -> resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
+          else -> resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
+        }
+        setPaddingRelative(startPadding, 0, endPadding, 0)
         compoundDrawablePadding = resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
     }
 
@@ -234,9 +238,9 @@ class Chip : AppCompatTextView {
 
         if (chipIcon != null && (chipIcon as BitmapDrawable).bitmap != null) {
             var bitmap = (chipIcon as BitmapDrawable).bitmap
-            bitmap = ChipUtils.getSquareBitmap(bitmap)
-            bitmap = ChipUtils.getScaledBitmap(context, bitmap)
-            bitmap = ChipUtils.getCircleBitmap(context, bitmap, cornerRadius.toFloat())
+            bitmap = bitmap.getSquareBitmap()
+            bitmap = bitmap.getScaledBitmap(resources.getDimensionPixelSize(R.dimen.chip_height))
+            bitmap = bitmap.getCircleBitmap(resources.getDimensionPixelSize(R.dimen.chip_height), cornerRadius.toFloat())
 
             val drawable = BitmapDrawable(resources, bitmap)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -247,8 +251,8 @@ class Chip : AppCompatTextView {
         }
 
         if (chipIconBitmap != null) {
-            chipIconBitmap = ChipUtils.getSquareBitmap(chipIconBitmap)
-            chipIconBitmap = ChipUtils.getCircleBitmap(context, chipIconBitmap, cornerRadius.toFloat())
+            chipIconBitmap = chipIconBitmap?.getSquareBitmap()
+            chipIconBitmap = chipIconBitmap?.getCircleBitmap(resources.getDimensionPixelSize(R.dimen.chip_height), cornerRadius.toFloat())
 
             val drawable = BitmapDrawable(resources, chipIconBitmap)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -258,8 +262,14 @@ class Chip : AppCompatTextView {
             }
         }
 
-        if (iconText != null && iconText != "") {
-            val textBitmap = ChipUtils.getCircleBitmapWithText(context, iconText, iconTextColor, iconTextBackgroundColor, cornerRadius.toFloat())
+        if (!iconText.isNullOrEmpty()) {
+            val textBitmap = getCircleBitmapWithText(
+                size = resources.getDimensionPixelSize(R.dimen.chip_height),
+                text = iconText ?: "",
+                textColor = iconTextColor,
+                bgColor = iconTextBackgroundColor,
+                radius = cornerRadius.toFloat()
+            )
 
             val drawable = BitmapDrawable(resources, textBitmap)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -409,7 +419,7 @@ class Chip : AppCompatTextView {
     fun setIconText(text: String, iconTextColor: Int = 0, iconTextBackgroundColor: Int = 0) {
         if (text == "") return
 
-        this.iconText = ChipUtils.generateText(text)
+        this.iconText = text.generateText()
         this.iconTextColor =
             if (iconTextColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
             else iconTextColor
