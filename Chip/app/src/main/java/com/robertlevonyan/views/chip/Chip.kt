@@ -8,13 +8,16 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.text.TextUtils
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 
 class Chip : AppCompatTextView {
+    companion object {
+        private const val TAG = "MaterialChipView"
+    }
+
     var chipIcon: Drawable? = null
         set(value) {
             field = value
@@ -28,7 +31,10 @@ class Chip : AppCompatTextView {
     var closable = false
         set(value) {
             field = value
-            if (value) selectable = false
+            if (value) {
+                selectable = false
+                chipSelectableWithoutIcon = false
+            }
             buildView()
         }
     var selectable = false
@@ -39,7 +45,7 @@ class Chip : AppCompatTextView {
         }
     var chipSelected = false
         set(value) {
-            if (closable || selectable) {
+            if (closable || selectable || chipSelectableWithoutIcon) {
                 field = value
                 buildView()
             }
@@ -105,6 +111,7 @@ class Chip : AppCompatTextView {
     var chipSelectableWithoutIcon = false
         set(value) {
             field = value
+            if (value) closable = false
             buildView()
         }
     private var iconText: String? = null
@@ -150,7 +157,7 @@ class Chip : AppCompatTextView {
 
         ta.recycle()
 
-        if (selectable && closable) {
+        if (closable && selectable || chipSelectableWithoutIcon) {
             throw IllegalStateException("Chip must be either selectable or closable. You set both true")
         }
     }
@@ -167,7 +174,7 @@ class Chip : AppCompatTextView {
         val iconTextBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
         setIconText(iconText ?: "", iconTextColor, iconTextBackgroundColor)
 
-        if (selectable && closable) {
+        if (closable && selectable || chipSelectableWithoutIcon) {
             throw IllegalStateException("Chip must be either selectable or closable. You set both true")
         }
     }
@@ -329,6 +336,8 @@ class Chip : AppCompatTextView {
                         return true
                     }
                 }
+                if (chipSelectableWithoutIcon)
+                    return true
             }
             MotionEvent.ACTION_UP -> {
                 var positionX = event.x.toInt()
@@ -370,7 +379,6 @@ class Chip : AppCompatTextView {
                     if (positionY <= 0) positionY = event.y.toInt()
 
                     if (bounds.contains(positionX, positionY)) {
-                        Log.e("Click", "Right")
                         if (selectable) {
                             chipSelected = !chipSelected
                             onSelectClickListener?.onSelectClick(this, chipSelected)
@@ -385,6 +393,11 @@ class Chip : AppCompatTextView {
                 }
                 if (closable) {
                     chipSelected = false
+                    buildView()
+                }
+                if (chipSelectableWithoutIcon) {
+                    chipSelected = !chipSelected
+                    onSelectClickListener?.onSelectClick(this, chipSelected)
                     buildView()
                 }
             }
