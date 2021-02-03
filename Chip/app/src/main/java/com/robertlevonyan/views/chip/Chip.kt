@@ -90,6 +90,23 @@ class Chip : AppCompatTextView {
             buildView()
         }
 
+    var selectedStrokeColor = 0
+        set(value) {
+            field = value
+            buildView()
+        }
+
+    var selectedStrokeSize = 0
+        set(value) {
+            field = value
+            buildView()
+        }
+
+    var chipSelectableWithoutIcon = false
+        set(value) {
+            field = value
+            buildView()
+        }
     private var iconText: String? = null
     private var iconTextColor = 0
     private var iconTextBackgroundColor = 0
@@ -124,6 +141,8 @@ class Chip : AppCompatTextView {
         cornerRadius = ta.getDimensionPixelSize(R.styleable.Chip_mcv_cornerRadius, resources.getDimensionPixelSize(R.dimen.chip_height) / 2)
         strokeSize = ta.getDimensionPixelSize(R.styleable.Chip_mcv_strokeSize, 0)
         strokeColor = ta.getColor(R.styleable.Chip_mcv_strokeColor, ContextCompat.getColor(context, R.color.colorChipCloseClicked))
+        selectedStrokeSize = ta.getDimensionPixelSize(R.styleable.Chip_mcv_strokeSize, 0)
+        selectedStrokeColor = ta.getColor(R.styleable.Chip_mcv_strokeColor, ContextCompat.getColor(context, R.color.colorChipCloseInactive))
         val iconText = ta.getString(R.styleable.Chip_mcv_iconText)
         val iconTextColor = ta.getColor(R.styleable.Chip_mcv_iconTextColor, ContextCompat.getColor(context, R.color.colorChipCloseClicked))
         val iconTextBackgroundColor = ta.getColor(R.styleable.Chip_mcv_iconTextBackgroundColor, ContextCompat.getColor(context, R.color.colorChipBackgroundClicked))
@@ -164,7 +183,7 @@ class Chip : AppCompatTextView {
         gravity = Gravity.CENTER
         val startPadding = if (chipIcon == null && chipIconBitmap == null && iconText == null) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else 0
         val endPadding = if (selectable || closable) resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin) else resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
-        setPaddingRelative(startPadding, 0, endPadding, 0)
+        setPaddingRelative(startPadding, 0, if (chipSelectableWithoutIcon) startPadding else endPadding, 0)
         compoundDrawablePadding = resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
     }
 
@@ -175,12 +194,21 @@ class Chip : AppCompatTextView {
     private fun createBackground() {
         val radius = cornerRadius.toFloat()
         val radii = floatArrayOf(radius, radius, radius, radius, radius, radius, radius, radius)
+        var _strokeColor = strokeColor
+        var _strokeSize = strokeSize
+        var _chipBackgroundColor = chipBackgroundColor
+
+        if (chipSelected) {
+            _strokeColor = selectedStrokeColor
+            _strokeSize = selectedStrokeSize
+            _chipBackgroundColor = chipSelectedBackgroundColor
+        }
 
         background = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
             cornerRadii = radii
-            setColor(if (chipSelected) chipSelectedBackgroundColor else chipBackgroundColor)
-            setStroke(strokeSize, strokeColor)
+            setColor(_chipBackgroundColor)
+            setStroke(_strokeSize, _strokeColor)
         }
     }
 
@@ -250,7 +278,7 @@ class Chip : AppCompatTextView {
 
     @Suppress("DEPRECATION")
     private fun createSelectIcon(): Drawable? {
-        if (!selectable) return null
+        if (!selectable || chipSelectableWithoutIcon) return null
 
         return ContextCompat.getDrawable(context, R.drawable.ic_select)?.apply {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -370,11 +398,11 @@ class Chip : AppCompatTextView {
 
         this.iconText = ChipUtils.generateText(text)
         this.iconTextColor =
-                if (iconTextColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
-                else iconTextColor
+            if (iconTextColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+            else iconTextColor
         this.iconTextBackgroundColor =
-                if (iconTextBackgroundColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
-                else iconTextBackgroundColor
+            if (iconTextBackgroundColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+            else iconTextBackgroundColor
         buildView()
     }
 }
