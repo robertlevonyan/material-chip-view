@@ -145,6 +145,10 @@ On Select button click listener
 
 ## Versions
 
+#### 2.1.1
+
+Minor changes, some missing parts pushed
+
 #### 2.1.0
 
 New update, now it is possible to make chip selectable without selection icon
