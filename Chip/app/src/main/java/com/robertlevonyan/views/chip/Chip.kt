@@ -114,6 +114,19 @@ class Chip : AppCompatTextView {
             if (value) closable = false
             buildView()
         }
+
+    var chipHorizontalPadding = 0
+        set(value) {
+            field = value
+            buildView()
+        }
+    var text: CharSequence = ""
+        @JvmName("_getText") get
+        @JvmName("_setText")
+        set(value) {
+            field = value.trim()
+        }
+
     private var iconText: String? = null
     private var iconTextColor = 0
     private var iconTextBackgroundColor = 0
@@ -188,14 +201,18 @@ class Chip : AppCompatTextView {
 
     private fun createPaddings() {
         gravity = Gravity.CENTER
-        val startPadding = if (chipIcon == null && chipIconBitmap == null && iconText == null) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else 0
+        val startPadding = if (chipIcon == null && chipIconBitmap == null && iconText == null) {
+            if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+        } else {
+            0
+        }
         val endPadding = when {
-          selectable || closable -> resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin)
-          chipSelectableWithoutIcon || iconText != null -> resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
-          else -> resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
+            selectable || closable -> resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin)
+            chipSelectableWithoutIcon || iconText != null -> if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+            else -> if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
         }
         setPaddingRelative(startPadding, 0, endPadding, 0)
-        compoundDrawablePadding = resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin)
+        compoundDrawablePadding = if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
     }
 
     private fun createChipText() {
@@ -427,5 +444,43 @@ class Chip : AppCompatTextView {
             if (iconTextBackgroundColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
             else iconTextBackgroundColor
         buildView()
+    }
+
+    override fun setText(text: CharSequence?, type: BufferType?) {
+        super.setText(text?.trim(), type)
+    }
+
+    override fun setPadding(left: Int, top: Int, right: Int, bottom: Int) {
+        gravity = Gravity.CENTER
+        val startPadding = if (chipIcon == null && chipIconBitmap == null && iconText == null) {
+            if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+        } else {
+            0
+        }
+        val endPadding = when {
+            selectable || closable -> resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin)
+            chipSelectableWithoutIcon || iconText != null -> if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+            else -> if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+        }
+        super.setPadding(startPadding, 0, endPadding, 0)
+    }
+
+    override fun setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int) {
+        gravity = Gravity.CENTER
+        val startPadding = if (chipIcon == null && chipIconBitmap == null && iconText == null) {
+            if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+        } else {
+            0
+        }
+        val endPadding = when {
+            selectable || closable -> resources.getDimensionPixelSize(R.dimen.chip_close_horizontal_margin)
+            chipSelectableWithoutIcon || iconText != null -> if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+            else -> if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding
+        }
+        super.setPaddingRelative(startPadding, 0, endPadding, 0)
+    }
+
+    override fun setCompoundDrawablePadding(pad: Int) {
+        super.setCompoundDrawablePadding(if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding)
     }
 }

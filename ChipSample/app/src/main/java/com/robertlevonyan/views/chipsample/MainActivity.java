@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.robertlevonyan.views.chip.Chip;
 import com.robertlevonyan.views.chip.OnCloseClickListener;
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout activity_main = findViewById(R.id.activity_main);
 //        Chip chip = findViewById(R.id.football_chip);
         Chip chip = new Chip(this);
+        final Chip chip2 = new Chip(this);
         chip.setText("Some Text");
+        chip2.setText("Some Text 2                ");
 //        chip.setChipSelectableWithoutIcon(true);
 //        chip.setIconText("My Icon", Color.YELLOW, Color.BLACK);
 //        chip.setSelectable(true);
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 //        chip.setChipCloseColor(Color.YELLOW);
         chip.setChipBackgroundColor(Color.GREEN);
         chip.setChipSelectedBackgroundColor(Color.RED);
+        chip2.setChipBackgroundColor(Color.GREEN);
+        chip2.setChipSelectableWithoutIcon(true);
+        chip2.setChipSelectedBackgroundColor(Color.RED);
         chip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,8 +56,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Chip", "" + selected);
             }
         });
+        chip2.setOnSelectClickListener(new OnSelectClickListener() {
+            @Override
+            public void onSelectClick(View v, boolean selected) {
+                Log.e("Chip", "" + selected);
+                chip2.setPaddingRelative(100, 0, 100, 0);
+            }
+        });
 
         activity_main.addView(chip, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        activity_main.addView(chip2, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
 //        chip.setOnClickListener(new View.OnClickListener() {
 //            @Override
