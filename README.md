@@ -141,11 +141,12 @@ On Select button click listener
         chip.selectedStrokeSize = 2 // Set width of stroke when selected
         chip.selectedStrokeColor = selectedStrokeColor // Set stroke color for your Chip when selected
         chip.setIconText(text, iconTextColor, iconTextBackgroundColor); // Set Chip icon text, text color and background color (in case of Kotlin iconTextColor and iconTextBackgroundColor have default value of 0)
+        chip.chipHorizontalPadding = 10 // Set horizontal padding for chip
 ```
 
 ## Versions
 
-#### 2.1.1
+#### 2.1.1 - 2.1.7
 
 Minor changes, some missing parts pushed
 
