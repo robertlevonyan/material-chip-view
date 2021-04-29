@@ -9,7 +9,7 @@
 
 Add following line of code to your module(app) level gradle file
 
-#### Gradle:
+#### Groovy:
 
 ```groovy
     implementation 'com.robertlevonyan.view:materialchipview:<LATEST_VERSION>'
