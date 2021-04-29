@@ -7,12 +7,18 @@
 
 ## Setup
 
-#### Gradle:
-
 Add following line of code to your module(app) level gradle file
+
+#### Gradle:
 
 ```groovy
     implementation 'com.robertlevonyan.view:materialchipview:<LATEST_VERSION>'
+```
+
+#### Kotlin:
+
+```kotlin
+    implementation("com.robertlevonyan.view:materialchipview:$LATEST_VERSION")
 ```
 
 #### Maven:
