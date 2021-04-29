@@ -1,5 +1,7 @@
-apply plugin: 'com.android.application'
-
+plugins {
+    id 'com.android.application'
+//    id 'maven'
+}
 android {
     compileSdkVersion 30
     defaultConfig {
@@ -22,9 +24,5 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.robertlevonyan.view:MaterialChipView:2.1.7'
-    testImplementation 'junit:junit:4.13.1'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    implementation 'com.robertlevonyan.view:chip:2.2.0'
 }
