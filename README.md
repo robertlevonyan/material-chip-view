@@ -3,7 +3,7 @@
 |Material Chip view. Can be used as tags for categories, contacts or creating text clouds. This library can be an alternative for Material Chip from Jetpack library.|<img src="https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.png"  width="500" />|
 |----------------------------------------------------------------------------------------------|-----------|
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-17%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=14) [ ![Download](https://api.bintray.com/packages/robertlevonyan/maven/MaterialChipView/images/download.svg)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-17%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=14)
 
 ## Setup
 
