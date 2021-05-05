@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 fun interface OnSelectClickListener {
-    fun onSelectClick(v: View, selected: Boolean)
+  fun onSelectClick(v: View, selected: Boolean)
 }

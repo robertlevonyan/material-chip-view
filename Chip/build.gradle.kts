@@ -1,9 +1,7 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
   id("com.android.library")
   kotlin("android")
-  id("maven-publish")
+  id("com.vanniktech.maven.publish")
 }
 
 android {
@@ -31,23 +29,11 @@ android {
     jvmTarget = "1.8"
   }
 }
-publishing {
-  publications {
-    create<MavenPublication>("debug") {
-      groupId = "com.robertlevonyan.view"
-      artifactId = "chip"
-      version = "2.2.0"
-      artifact("$buildDir/outputs/aar/chip-debug.aar")
-    }
-  }
-  repositories {
-    maven {
-      name = "MaterialChipView"
-      url = uri("https://maven.pkg.github.com/robertlevonyan/materialChipView")
-      credentials {
-        username = gradleLocalProperties(rootDir)["gpr.usr"] as String? ?: System.getenv("GPR_USER")
-        password = gradleLocalProperties(rootDir)["gpr.key"] as String? ?: System.getenv("GPR_API_KEY")
-      }
+
+allprojects {
+  plugins.withId("com.vanniktech.maven.publish") {
+    mavenPublish {
+      sonatypeHost = com.vanniktech.maven.publish.SonatypeHost.S01
     }
   }
 }

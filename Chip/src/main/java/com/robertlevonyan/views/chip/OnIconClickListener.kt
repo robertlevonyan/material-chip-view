@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 fun interface OnIconClickListener {
-    fun onIconClick(v: View)
+  fun onIconClick(v: View)
 }

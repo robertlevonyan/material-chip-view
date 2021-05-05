@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 fun interface OnCloseClickListener {
-    fun onCloseClick(v: View)
+  fun onCloseClick(v: View)
 }
