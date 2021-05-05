@@ -160,6 +160,10 @@ On Select button click listener
 
 ## Versions
 
+#### 2.2.0 - 2.2.3
+
+Migration to mavenCentral and artifact name change (materialChipView became chip)
+
 #### 2.1.1 - 2.1.7
 
 Minor changes, some missing parts pushed
