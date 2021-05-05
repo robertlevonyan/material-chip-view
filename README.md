@@ -3,7 +3,7 @@
 |Material Chip view. Can be used as tags for categories, contacts or creating text clouds. This library can be an alternative for Material Chip from Jetpack library.|<img src="https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.png"  width="500" />|
 |----------------------------------------------------------------------------------------------|-----------|
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-17%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=14) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/chip/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/chip)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-17%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=14) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/MaterialChipView/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/MaterialChipView)
 
 ## Setup
 
@@ -20,13 +20,13 @@ Add following line of code to your module(app) level gradle file
 #### Groovy:
 
 ```groovy
-    implementation 'com.robertlevonyan.view:chip:<LATEST_VERSION>'
+    implementation 'com.robertlevonyan.view:MaterialChipView:<LATEST_VERSION>'
 ```
 
 #### Kotlin:
 
 ```kotlin
-    implementation("com.robertlevonyan.view:chip:$LATEST_VERSION")
+    implementation("com.robertlevonyan.view:MaterialChipView:$LATEST_VERSION")
 ```
 
 #### Maven:
@@ -34,7 +34,7 @@ Add following line of code to your module(app) level gradle file
 ```xml
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
-    <artifactId>chip</artifactId>
+    <artifactId>MaterialChipView</artifactId>
     <version>LATEST_VERSION</version>
     <type>pom</type>
   </dependency>
@@ -160,9 +160,9 @@ On Select button click listener
 
 ## Versions
 
-#### 2.2.0 - 2.2.3
+#### 2.2.0
 
-Migration to mavenCentral and artifact name change (materialChipView became chip)
+Migration to mavenCentral
 
 #### 2.1.1 - 2.1.7
 
