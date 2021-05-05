@@ -7,18 +7,26 @@
 
 ## Setup
 
+Add following line of code to your project level gradle file
+
+```kotlin
+  repositories {
+    mavenCentral()
+  }
+```
+
 Add following line of code to your module(app) level gradle file
 
 #### Groovy:
 
 ```groovy
-    implementation 'com.robertlevonyan.view:materialchipview:<LATEST_VERSION>'
+    implementation 'com.robertlevonyan.view:chip:<LATEST_VERSION>'
 ```
 
 #### Kotlin:
 
 ```kotlin
-    implementation("com.robertlevonyan.view:materialchipview:$LATEST_VERSION")
+    implementation("com.robertlevonyan.view:chip:$LATEST_VERSION")
 ```
 
 #### Maven:
@@ -26,7 +34,7 @@ Add following line of code to your module(app) level gradle file
 ```xml
   <dependency>
     <groupId>com.robertlevonyan.view</groupId>
-    <artifactId>materialchipview</artifactId>
+    <artifactId>chip</artifactId>
     <version>LATEST_VERSION</version>
     <type>pom</type>
   </dependency>
