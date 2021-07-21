@@ -160,7 +160,7 @@ On Select button click listener
 
 ## Versions
 
-#### 2.2.1
+#### 2.2.4
 
 SDK 31 ready
 
