@@ -160,7 +160,11 @@ On Select button click listener
 
 ## Versions
 
-#### 2.2.0
+#### 2.2.1
+
+SDK 31 ready
+
+### 2.2.0
 
 Migration to mavenCentral
 
