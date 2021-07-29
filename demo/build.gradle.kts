@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-  compileSdkVersion(31)
+  compileSdk = 31
   defaultConfig {
     applicationId = "com.robertlevonyan.views.chipsample"
-    minSdkVersion(16)
-    targetSdkVersion(31)
+    minSdk = 16
+    targetSdk = 31
     versionCode = 1
     versionName = "1.0"
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-  implementation("androidx.appcompat:appcompat:1.3.0")
-  implementation("com.robertlevonyan.view:MaterialChipView:2.2.0")
+  implementation("androidx.appcompat:appcompat:1.3.1")
+  implementation("com.robertlevonyan.view:MaterialChipView:2.2.5")
 }

@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-  compileSdkVersion(31)
+  compileSdk = 31
   defaultConfig {
-    minSdkVersion(16)
-    targetSdkVersion(31)
+    minSdk = 16
+    targetSdk = 31
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     setProperty("archivesBaseName", "chip")
   }
@@ -38,6 +38,5 @@ allprojects {
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation("androidx.appcompat:appcompat:1.3.0")
-  testImplementation("junit:junit:4.13.2")
+  implementation("androidx.appcompat:appcompat:1.3.1")
 }

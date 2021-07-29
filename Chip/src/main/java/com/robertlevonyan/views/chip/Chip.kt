@@ -14,10 +14,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 
 class Chip : AppCompatTextView {
-  companion object {
-    private const val TAG = "MaterialChipView"
-  }
-
   var chipIcon: Drawable? = null
     set(value) {
       field = value
@@ -488,5 +484,9 @@ class Chip : AppCompatTextView {
 
   override fun setCompoundDrawablePadding(pad: Int) {
     super.setCompoundDrawablePadding(if (chipHorizontalPadding == 0) resources.getDimensionPixelSize(R.dimen.chip_icon_horizontal_margin) else chipHorizontalPadding)
+  }
+
+  companion object {
+    private const val TAG = "MaterialChipView"
   }
 }
