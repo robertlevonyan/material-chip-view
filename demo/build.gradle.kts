@@ -22,5 +22,5 @@ android {
 
 dependencies {
   implementation("androidx.appcompat:appcompat:1.3.1")
-  implementation("com.robertlevonyan.view:MaterialChipView:2.2.5")
+  implementation("com.robertlevonyan.view:MaterialChipView:2.2.6")
 }
