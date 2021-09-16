@@ -160,7 +160,7 @@ On Select button click listener
 
 ## Versions
 
-#### 2.2.1 - 2.2.6
+#### 2.2.1 - 2.2.7
 
 Update to Java 11
 SDK 31 ready
