@@ -1,2 +1,3 @@
 include ':chip'
 include ':demo'
+include ':chip-compose'
