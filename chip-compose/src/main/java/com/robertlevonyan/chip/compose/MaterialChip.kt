@@ -1,6 +1,7 @@
 package com.robertlevonyan.chip.compose
 
 import android.graphics.drawable.BitmapDrawable
+import android.view.MotionEvent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -12,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -19,6 +21,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.pointerInteropFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -31,6 +34,7 @@ private val CHIP_HEIGHT = 32.dp
 private val ICON_SIZE = 28.dp
 private val ICON_PADDING = 4.dp
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MaterialChip(
   text: String,
@@ -129,15 +133,17 @@ fun MaterialChip(
             .width(ICON_SIZE)
             .padding(end = ICON_PADDING)
             .align(Alignment.CenterVertically)
-            .pointerInput(Unit) {
-              detectTapGestures(
-                onPress = {
-
+            .pointerInteropFilter { motionEvent ->
+              when (motionEvent.action) {
+                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> {
+                  isSelected = true
                 }
-              )
-            }
-            .clickable {
-              onCloseClick.invoke()
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
+                  isSelected = false
+                  onCloseClick.invoke()
+                }
+              }
+              true
             },
           colorFilter = ColorFilter.tint(chipCloseIconColor),
           contentDescription = "",

@@ -21,13 +21,13 @@ class ComposePreview {
         MaterialChip(
           text = "Some Text",
           chipIcon = ChipIconRes(icon = R.drawable.android),
-          interaction = ChipInteraction.SelectableWithoutIcon,
+          interaction = ChipInteraction.Closable,
           strokeSize = 1.dp,
           selectedStrokeSize = 2.dp,
           strokeColor = Color.Red,
           selectedStrokeColor = Color.Blue,
-          onSelectClick = {
-            Toast.makeText(activity, "Sel $it", Toast.LENGTH_SHORT).show()
+          onSelectClick = { selected ->
+            Toast.makeText(activity, "Sel $selected", Toast.LENGTH_SHORT).show()
           },
           onIconClick = {
             Toast.makeText(activity, "Icon", Toast.LENGTH_SHORT).show()
@@ -35,6 +35,9 @@ class ComposePreview {
           onChipClick = {
             Toast.makeText(activity, "Click", Toast.LENGTH_SHORT).show()
           },
+          onCloseClick = {
+            Toast.makeText(activity, "Close", Toast.LENGTH_SHORT).show()
+          }
         )
       }
     }
