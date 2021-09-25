@@ -32,7 +32,7 @@ dependencies {
 
   implementation("androidx.appcompat:appcompat:1.3.1")
   implementation("com.robertlevonyan.view:MaterialChipView:2.2.7")
-  implementation("com.robertlevonyan.compose:materialchip:3.0.0-beta01")
+  implementation("com.robertlevonyan.compose:materialchip:3.0.0-beta02")
 //  implementation(project(mapOf("path" to ":chip-compose")))
 
   implementation("androidx.compose.compiler:compiler:1.0.2")

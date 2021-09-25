@@ -142,6 +142,7 @@ fun MaterialChip(
                   isSelected = false
                   onCloseClick.invoke()
                 }
+                MotionEvent.ACTION_HOVER_ENTER, MotionEvent.ACTION_HOVER_EXIT, MotionEvent.ACTION_HOVER_MOVE -> Unit
               }
               true
             },
