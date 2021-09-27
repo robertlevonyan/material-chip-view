@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 //        chip.setChipBackgroundColor(Color.GREEN);
 //        chip.setChipSelectedBackgroundColor(Color.RED);
 //        chip2.setChipBackgroundColor(Color.GREEN);
-        chip2.setChipSelectableWithoutIcon(true);
+//        chip.setSelectable(true);
 //        chip2.setChipSelectedBackgroundColor(Color.RED);
         chip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
         activity_main.addView(chip, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 //        activity_main.addView(chip2, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        findViewById(R.id.tttt).setOnClickListener(view -> {
+            chip.setChipSelected(!chip.getChipSelected());
+        });
 
         new ComposePreview().preview(this);
 //        chip.setOnClickListener(new View.OnClickListener() {

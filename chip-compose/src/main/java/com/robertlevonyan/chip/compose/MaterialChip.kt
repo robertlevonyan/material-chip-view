@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import androidx.compose.ui.input.pointer.pointerInteropFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -38,9 +40,10 @@ private val ICON_PADDING = 4.dp
 @Composable
 fun MaterialChip(
   text: String,
+  modifier: Modifier = Modifier,
   chipIcon: ChipIcon? = null,
   interaction: ChipInteraction = ChipInteraction.None,
-  selected: Boolean = false,
+  initialSelected: Boolean = false,
   backgroundColor: Color = colorResource(id = R.color.colorChipBackground),
   selectedBackgroundColor: Color = colorResource(id = R.color.colorChipBackgroundSelected),
   textColor: Color = colorResource(id = R.color.colorChipText),
@@ -53,12 +56,14 @@ fun MaterialChip(
   strokeColor: Color = Color.Transparent,
   selectedStrokeColor: Color = Color.Transparent,
   horizontalPadding: Dp = 8.dp,
+  fontFamily: FontFamily? = null,
   onChipClick: () -> Unit = {},
   onCloseClick: () -> Unit = {},
   onSelectClick: (Boolean) -> Unit = {},
   onIconClick: () -> Unit = {},
 ) {
-  var isSelected by remember { mutableStateOf(selected) }
+  var isSelected by rememberSaveable { mutableStateOf(initialSelected) }
+
   val chipShape = RoundedCornerShape(cornerRadius)
 
   val chipBackgroundColor = if (isSelected) selectedBackgroundColor else backgroundColor
@@ -68,12 +73,13 @@ fun MaterialChip(
   val chipCloseIconColor = if (isSelected) selectedCloseIconColor else closeIconColor
 
   Row(
-    modifier = Modifier
+    modifier = modifier
       .background(color = chipBackgroundColor, shape = chipShape)
       .height(CHIP_HEIGHT)
       .wrapContentWidth()
       .border(width = chipStrokeSize, color = chipStrokeColor, shape = chipShape)
       .apply {
+        padding(0.dp)
         if (chipIcon == null) {
           padding(horizontal = horizontalPadding)
         } else {
@@ -122,6 +128,7 @@ fun MaterialChip(
       maxLines = 1,
       overflow = TextOverflow.Ellipsis,
       color = chipTextColor,
+      fontFamily = fontFamily,
     )
 
     when (interaction) {
