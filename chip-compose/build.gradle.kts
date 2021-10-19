@@ -54,7 +54,7 @@ allprojects {
 dependencies {
   implementation(kotlin("stdlib"))
   implementation("androidx.compose.compiler:compiler:1.0.3")
-  implementation("androidx.compose.ui:ui:1.0.3")
+  implementation("androidx.compose.ui:ui:1.0.4")
   implementation("androidx.compose.material:material:1.0.3")
   implementation("androidx.compose.ui:ui-tooling:1.0.3")
 }

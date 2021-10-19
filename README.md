@@ -170,7 +170,6 @@ On Select button click listener
 ### For Jetpack Compose version
 
 ```kotlin
-
 setContent {
   Box(modifier = Modifier.fillMaxWidth()) {
     MaterialChip(
@@ -198,11 +197,36 @@ setContent {
 }
 ```
 
+Also there is a `MaterialChipGroup` available for Jetpack Compose version
+```kotlin
+setContent {
+  Box(modifier = Modifier.fillMaxWidth()) {
+    MaterialChipGroup(
+      items = listOf("Chip1", "Chip2", "Chip3"),
+      createTitle = { it }, //returns a String for the title
+      initialSelectedElementIndex = 1, // default value is -1 (means nothing is selected)
+      onItemSelected = { position, element ->
+        // do something
+      },
+      // the rest is for Chip appearance
+      interaction = ChipInteraction.Selectable,
+      strokeSize = 1.dp,
+      selectedStrokeSize = 2.dp,
+      strokeColor = Color.Red,
+      selectedStrokeColor = Color.Blue,
+      backgroundColor = Color.Red,
+      selectedBackgroundColor = Color.Blue,
+    )
+  }
+}
+```
+
 ## Versions
 
 ### 3.0.0
 
 Jetpack Compose support added
+Chip Group added for JetpackCompose
 
 #### 2.2.1 - 2.2.7
 

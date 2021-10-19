@@ -35,6 +35,7 @@ private val CHIP_HEIGHT = 32.dp
 private val ICON_SIZE = 28.dp
 private val ICON_PADDING = 4.dp
 
+@ExperimentalComposeUiApi
 @Composable
 fun MaterialChip(
   text: String,
@@ -160,7 +161,7 @@ fun MaterialChip(
   }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
+@ExperimentalComposeUiApi
 @Composable
 private fun RowScope.ClosableImageIcon(chipCloseIconColor: Color, onPressed: () -> Unit, onReleased: () -> Unit) {
   Image(

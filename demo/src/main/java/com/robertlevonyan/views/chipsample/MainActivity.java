@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout activity_main = findViewById(R.id.activity_main);
 //        Chip chip = findViewById(R.id.football_chip);
-//        Chip chip = new Chip(this);
+        Chip chip = new Chip(this);
 //        final Chip chip2 = new Chip(this);
 //        chip.setText("Some Text");
 //        chip.setChipIcon(ContextCompat.getDrawable(this, R.drawable.android));
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //
 //        activity_main.addView(chip, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-////        activity_main.addView(chip2, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//        activity_main.addView(chip2, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 //
 //        findViewById(R.id.tttt).setOnClickListener(view -> {
 //            chip.setChipSelected(!chip.getChipSelected());

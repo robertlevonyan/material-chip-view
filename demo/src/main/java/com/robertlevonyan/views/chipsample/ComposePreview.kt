@@ -6,6 +6,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
@@ -16,6 +17,7 @@ import com.robertlevonyan.chip.compose.MaterialChipGroup
 
 class ComposePreview {
 
+  @OptIn(ExperimentalComposeUiApi::class)
   fun preview(activity: MainActivity) {
     val composableView = activity.findViewById<ComposeView>(R.id.composeView)
 
