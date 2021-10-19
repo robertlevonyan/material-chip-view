@@ -150,23 +150,23 @@ class Chip : AppCompatTextView {
     selectable = ta.getBoolean(R.styleable.Chip_mcv_selectable, false)
     chipBackgroundColor = ta.getColor(R.styleable.Chip_mcv_backgroundColor, ContextCompat.getColor(context, R.color.colorChipBackground))
     chipSelectedBackgroundColor =
-      ta.getColor(R.styleable.Chip_mcv_selectedBackgroundColor, ContextCompat.getColor(context, R.color.colorChipBackgroundClicked))
+      ta.getColor(R.styleable.Chip_mcv_selectedBackgroundColor, ContextCompat.getColor(context, R.color.colorChipBackgroundSelected))
     chipTextColor = ta.getColor(R.styleable.Chip_mcv_textColor, ContextCompat.getColor(context, R.color.colorChipText))
     chipSelectedTextColor =
-      ta.getColor(R.styleable.Chip_mcv_selectedTextColor, ContextCompat.getColor(context, R.color.colorChipTextClicked))
-    chipCloseColor = ta.getColor(R.styleable.Chip_mcv_closeColor, ContextCompat.getColor(context, R.color.colorChipCloseInactive))
+      ta.getColor(R.styleable.Chip_mcv_selectedTextColor, ContextCompat.getColor(context, R.color.colorChipTextSelected))
+    chipCloseColor = ta.getColor(R.styleable.Chip_mcv_closeColor, ContextCompat.getColor(context, R.color.colorChipClose))
     chipSelectedCloseColor =
-      ta.getColor(R.styleable.Chip_mcv_selectedCloseColor, ContextCompat.getColor(context, R.color.colorChipCloseClicked))
+      ta.getColor(R.styleable.Chip_mcv_selectedCloseColor, ContextCompat.getColor(context, R.color.colorChipCloseSelected))
     cornerRadius = ta.getDimensionPixelSize(R.styleable.Chip_mcv_cornerRadius, resources.getDimensionPixelSize(R.dimen.chip_height) / 2)
     strokeSize = ta.getDimensionPixelSize(R.styleable.Chip_mcv_strokeSize, 0)
-    strokeColor = ta.getColor(R.styleable.Chip_mcv_strokeColor, ContextCompat.getColor(context, R.color.colorChipCloseClicked))
+    strokeColor = ta.getColor(R.styleable.Chip_mcv_strokeColor, ContextCompat.getColor(context, R.color.colorChipCloseSelected))
     selectedStrokeSize = ta.getDimensionPixelSize(R.styleable.Chip_mcv_selectedStrokeSize, 0)
     selectedStrokeColor =
-      ta.getColor(R.styleable.Chip_mcv_selectedStrokeColor, ContextCompat.getColor(context, R.color.colorChipCloseInactive))
+      ta.getColor(R.styleable.Chip_mcv_selectedStrokeColor, ContextCompat.getColor(context, R.color.colorChipClose))
     val iconText = ta.getString(R.styleable.Chip_mcv_iconText)
-    val iconTextColor = ta.getColor(R.styleable.Chip_mcv_iconTextColor, ContextCompat.getColor(context, R.color.colorChipCloseClicked))
+    val iconTextColor = ta.getColor(R.styleable.Chip_mcv_iconTextColor, ContextCompat.getColor(context, R.color.colorChipCloseSelected))
     val iconTextBackgroundColor =
-      ta.getColor(R.styleable.Chip_mcv_iconTextBackgroundColor, ContextCompat.getColor(context, R.color.colorChipBackgroundClicked))
+      ta.getColor(R.styleable.Chip_mcv_iconTextBackgroundColor, ContextCompat.getColor(context, R.color.colorChipBackgroundSelected))
     setIconText(iconText ?: "", iconTextColor, iconTextBackgroundColor)
 
     ta.recycle()
@@ -178,14 +178,14 @@ class Chip : AppCompatTextView {
 
   private fun initDefaultValues() {
     chipBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackground)
-    chipSelectedBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+    chipSelectedBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundSelected)
     chipTextColor = ContextCompat.getColor(context, R.color.colorChipText)
-    chipSelectedTextColor = ContextCompat.getColor(context, R.color.colorChipTextClicked)
-    chipCloseColor = ContextCompat.getColor(context, R.color.colorChipCloseInactive)
-    chipSelectedCloseColor = ContextCompat.getColor(context, R.color.colorChipCloseClicked)
+    chipSelectedTextColor = ContextCompat.getColor(context, R.color.colorChipTextSelected)
+    chipCloseColor = ContextCompat.getColor(context, R.color.colorChipClose)
+    chipSelectedCloseColor = ContextCompat.getColor(context, R.color.colorChipCloseSelected)
     cornerRadius = resources.getDimensionPixelSize(R.dimen.chip_height) / 2
-    val iconTextColor = ContextCompat.getColor(context, R.color.colorChipCloseClicked)
-    val iconTextBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+    val iconTextColor = ContextCompat.getColor(context, R.color.colorChipCloseSelected)
+    val iconTextBackgroundColor = ContextCompat.getColor(context, R.color.colorChipBackgroundSelected)
     setIconText(iconText ?: "", iconTextColor, iconTextBackgroundColor)
 
     if (closable && selectable || chipSelectableWithoutIcon) {
@@ -440,10 +440,10 @@ class Chip : AppCompatTextView {
 
     this.iconText = text.generateText()
     this.iconTextColor =
-      if (iconTextColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+      if (iconTextColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundSelected)
       else iconTextColor
     this.iconTextBackgroundColor =
-      if (iconTextBackgroundColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundClicked)
+      if (iconTextBackgroundColor == 0) ContextCompat.getColor(context, R.color.colorChipBackgroundSelected)
       else iconTextBackgroundColor
     buildView()
   }
