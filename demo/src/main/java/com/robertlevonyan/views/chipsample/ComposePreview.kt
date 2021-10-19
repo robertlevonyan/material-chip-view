@@ -1,21 +1,18 @@
 package com.robertlevonyan.views.chipsample
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
-import com.robertlevonyan.chip.compose.ChipIconRes
 import com.robertlevonyan.chip.compose.ChipInteraction
 import com.robertlevonyan.chip.compose.MaterialChip
+import com.robertlevonyan.chip.compose.MaterialChipGroup
 
 class ComposePreview {
 
@@ -24,32 +21,27 @@ class ComposePreview {
 
     composableView.setContent {
       Column(modifier = Modifier.fillMaxWidth()) {
-        var isSelected by remember { mutableStateOf(false) }
+        val isSelected = remember { mutableStateOf(false) }
 
         MaterialChip(
-          text = "Some Text",
-          chipIcon = ChipIconRes(icon = R.drawable.android),
-          interaction = ChipInteraction.SelectableWithoutIcon,
+          text = "SELC",
+          interaction = ChipInteraction.Selectable,
+        )
+
+        MaterialChipGroup(
+          items = listOf("Chip1", "Chip2", "Chip3"),
+          createTitle = { it },
+          initialSelectedElementIndex = 1,
+          interaction = ChipInteraction.Selectable,
           strokeSize = 1.dp,
           selectedStrokeSize = 2.dp,
           strokeColor = Color.Red,
           selectedStrokeColor = Color.Blue,
-          initialSelected = isSelected,
-          onSelectClick = { selected ->
-            Toast.makeText(activity, "Sel $selected", Toast.LENGTH_SHORT).show()
-          },
-          onIconClick = {
-            Toast.makeText(activity, "Icon", Toast.LENGTH_SHORT).show()
-          },
-          onChipClick = {
-            Toast.makeText(activity, "Click", Toast.LENGTH_SHORT).show()
-          },
-          onCloseClick = {
-            Toast.makeText(activity, "Close", Toast.LENGTH_SHORT).show()
-          },
+          backgroundColor = Color.Red,
+          selectedBackgroundColor = Color.Blue,
         )
 
-        Button(onClick = { isSelected = !isSelected }) {
+        Button(onClick = { isSelected.value = !isSelected.value }) {
           Text(text = "Select")
         }
       }

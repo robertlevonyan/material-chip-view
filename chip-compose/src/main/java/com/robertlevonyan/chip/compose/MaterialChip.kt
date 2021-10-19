@@ -3,16 +3,15 @@ package com.robertlevonyan.chip.compose
 import android.graphics.drawable.BitmapDrawable
 import android.view.MotionEvent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -36,14 +35,13 @@ private val CHIP_HEIGHT = 32.dp
 private val ICON_SIZE = 28.dp
 private val ICON_PADDING = 4.dp
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MaterialChip(
   text: String,
   modifier: Modifier = Modifier,
   chipIcon: ChipIcon? = null,
   interaction: ChipInteraction = ChipInteraction.None,
-  initialSelected: Boolean = false,
+  selected: MutableState<Boolean> = mutableStateOf(false),
   backgroundColor: Color = colorResource(id = R.color.colorChipBackground),
   selectedBackgroundColor: Color = colorResource(id = R.color.colorChipBackgroundSelected),
   textColor: Color = colorResource(id = R.color.colorChipText),
@@ -62,7 +60,7 @@ fun MaterialChip(
   onSelectClick: (Boolean) -> Unit = {},
   onIconClick: () -> Unit = {},
 ) {
-  var isSelected by rememberSaveable { mutableStateOf(initialSelected) }
+  var isSelected by selected
 
   val chipShape = RoundedCornerShape(cornerRadius)
 
@@ -72,12 +70,12 @@ fun MaterialChip(
   val chipStrokeColor = if (isSelected) selectedStrokeColor else strokeColor
   val chipCloseIconColor = if (isSelected) selectedCloseIconColor else closeIconColor
 
-  Row(
+  Surface(
+    shape = chipShape,
     modifier = modifier
-      .background(color = chipBackgroundColor, shape = chipShape)
+      .padding(end = 8.dp)
       .height(CHIP_HEIGHT)
       .wrapContentWidth()
-      .border(width = chipStrokeSize, color = chipStrokeColor, shape = chipShape)
       .apply {
         padding(0.dp)
         if (chipIcon == null) {
@@ -85,101 +83,122 @@ fun MaterialChip(
         } else {
           padding(end = horizontalPadding)
         }
-      },
-  ) {
-    if (chipIcon != null) {
-      val chipPainter = when (chipIcon) {
-        is ChipIconBitmap -> BitmapPainter(image = chipIcon.icon.asImageBitmap())
-        is ChipIconDrawable -> {
-          val bmp = (chipIcon.icon as BitmapDrawable).bitmap
-          BitmapPainter(image = bmp.asImageBitmap())
-        }
-        is ChipIconRes -> painterResource(id = chipIcon.icon)
       }
-      Image(
-        painter = chipPainter,
-        modifier = Modifier
-          .height(CHIP_HEIGHT)
-          .width(CHIP_HEIGHT)
-          .size(CHIP_HEIGHT)
-          .clip(CircleShape)
-          .clickable { onIconClick.invoke() },
-        contentScale = ContentScale.Crop,
-        contentDescription = "",
-      )
-    }
+      .border(width = chipStrokeSize, color = chipStrokeColor, shape = chipShape),
+    color = chipBackgroundColor,
+  ) {
+    Row(
+      modifier = modifier
+        .height(CHIP_HEIGHT)
+        .wrapContentWidth(),
+    ) {
+      if (chipIcon != null) {
+        val chipPainter = when (chipIcon) {
+          is ChipIconBitmap -> BitmapPainter(image = chipIcon.icon.asImageBitmap())
+          is ChipIconDrawable -> {
+            val bmp = (chipIcon.icon as BitmapDrawable).bitmap
+            BitmapPainter(image = bmp.asImageBitmap())
+          }
+          is ChipIconRes -> painterResource(id = chipIcon.icon)
+        }
+        Image(
+          painter = chipPainter,
+          modifier = Modifier
+            .height(CHIP_HEIGHT)
+            .width(CHIP_HEIGHT)
+            .size(CHIP_HEIGHT)
+            .clip(CircleShape)
+            .clickable { onIconClick.invoke() },
+          contentScale = ContentScale.Crop,
+          contentDescription = "",
+        )
+      }
 
-    Text(
-      text = text,
-      modifier = Modifier
-        .wrapContentHeight()
-        .wrapContentWidth()
-        .align(Alignment.CenterVertically)
-        .padding(horizontal = horizontalPadding)
-        .clickable {
-          if (interaction == ChipInteraction.SelectableWithoutIcon) {
+      Text(
+        text = text,
+        modifier = Modifier
+          .wrapContentHeight()
+          .wrapContentWidth()
+          .align(Alignment.CenterVertically)
+          .padding(horizontal = horizontalPadding)
+          .clickable {
+            if (interaction == ChipInteraction.SelectableWithoutIcon) {
+              isSelected = !isSelected
+              onSelectClick.invoke(isSelected)
+            } else {
+              onChipClick.invoke()
+            }
+          },
+        textAlign = TextAlign.Center,
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+        color = chipTextColor,
+        fontFamily = fontFamily,
+      )
+
+      when (interaction) {
+        ChipInteraction.Closable -> {
+          ClosableImageIcon(
+            chipCloseIconColor = chipCloseIconColor,
+            onPressed = { isSelected = true },
+            onReleased = {
+              isSelected = false
+              onCloseClick.invoke()
+            },
+          )
+        }
+        ChipInteraction.Selectable -> {
+          SelectableImageIcon(chipCloseIconColor = chipCloseIconColor) {
             isSelected = !isSelected
             onSelectClick.invoke(isSelected)
-          } else {
-            onChipClick.invoke()
           }
-        },
-      textAlign = TextAlign.Center,
-      maxLines = 1,
-      overflow = TextOverflow.Ellipsis,
-      color = chipTextColor,
-      fontFamily = fontFamily,
-    )
-
-    when (interaction) {
-      ChipInteraction.Closable -> {
-        Image(
-          painter = painterResource(id = R.drawable.ic_close),
-          modifier = Modifier
-            .height(ICON_SIZE)
-            .width(ICON_SIZE)
-            .padding(end = ICON_PADDING)
-            .align(Alignment.CenterVertically)
-            .pointerInteropFilter { motionEvent ->
-              when (motionEvent.action) {
-                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> {
-                  isSelected = true
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
-                  isSelected = false
-                  onCloseClick.invoke()
-                }
-                MotionEvent.ACTION_HOVER_ENTER, MotionEvent.ACTION_HOVER_EXIT, MotionEvent.ACTION_HOVER_MOVE -> Unit
-              }
-              true
-            },
-          colorFilter = ColorFilter.tint(chipCloseIconColor),
-          contentDescription = "",
-        )
-      }
-      ChipInteraction.Selectable -> {
-        Image(
-          painter = painterResource(id = R.drawable.ic_select),
-          modifier = Modifier
-            .height(ICON_SIZE)
-            .width(ICON_SIZE)
-            .padding(end = ICON_PADDING)
-            .align(Alignment.CenterVertically)
-            .pointerInput(Unit) {
-              detectTapGestures(
-                onTap = {
-                  isSelected = !isSelected
-                  onSelectClick.invoke(isSelected)
-                },
-              )
-            },
-          contentScale = ContentScale.Inside,
-          colorFilter = ColorFilter.tint(chipCloseIconColor),
-          contentDescription = "",
-        )
-      }
-      else -> {
+        }
+        else -> {
+        }
       }
     }
   }
+}
+
+@OptIn(ExperimentalComposeUiApi::class)
+@Composable
+private fun RowScope.ClosableImageIcon(chipCloseIconColor: Color, onPressed: () -> Unit, onReleased: () -> Unit) {
+  Image(
+    painter = painterResource(id = R.drawable.ic_close),
+    modifier = Modifier
+      .height(ICON_SIZE)
+      .width(ICON_SIZE)
+      .padding(end = ICON_PADDING)
+      .align(Alignment.CenterVertically)
+      .pointerInteropFilter { motionEvent ->
+        when (motionEvent.action) {
+          MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> onPressed.invoke()
+          MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> onReleased.invoke()
+          MotionEvent.ACTION_HOVER_ENTER, MotionEvent.ACTION_HOVER_EXIT, MotionEvent.ACTION_HOVER_MOVE -> Unit
+        }
+        true
+      },
+    colorFilter = ColorFilter.tint(chipCloseIconColor),
+    contentDescription = "",
+  )
+}
+
+@Composable
+private fun RowScope.SelectableImageIcon(chipCloseIconColor: Color, onTap: () -> Unit) {
+  Image(
+    painter = painterResource(id = R.drawable.ic_select),
+    modifier = Modifier
+      .height(ICON_SIZE)
+      .width(ICON_SIZE)
+      .padding(end = ICON_PADDING)
+      .align(Alignment.CenterVertically)
+      .pointerInput(Unit) {
+        detectTapGestures(
+          onTap = { onTap.invoke() },
+        )
+      },
+    contentScale = ContentScale.Inside,
+    colorFilter = ColorFilter.tint(chipCloseIconColor),
+    contentDescription = "",
+  )
 }

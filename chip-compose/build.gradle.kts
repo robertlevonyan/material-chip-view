@@ -39,7 +39,7 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.0.2"
+    kotlinCompilerExtensionVersion = "1.0.3"
   }
 }
 
@@ -53,8 +53,8 @@ allprojects {
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation("androidx.compose.compiler:compiler:1.0.2")
-  implementation("androidx.compose.ui:ui:1.0.2")
-  implementation("androidx.compose.material:material:1.0.2")
-  implementation("androidx.compose.ui:ui-tooling:1.0.2")
+  implementation("androidx.compose.compiler:compiler:1.0.3")
+  implementation("androidx.compose.ui:ui:1.0.3")
+  implementation("androidx.compose.material:material:1.0.3")
+  implementation("androidx.compose.ui:ui-tooling:1.0.3")
 }
