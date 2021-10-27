@@ -35,7 +35,7 @@ private val CHIP_HEIGHT = 32.dp
 private val ICON_SIZE = 28.dp
 private val ICON_PADDING = 4.dp
 
-@ExperimentalComposeUiApi
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MaterialChip(
   text: String,
