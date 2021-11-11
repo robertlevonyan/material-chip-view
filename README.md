@@ -290,7 +290,7 @@ First version of library
 - **Facebook**: https://facebook.com/robert.levonyan
 - **Google Play**: https://play.google.com/store/apps/dev?id=5477562049350283357
 
-[![name](link to image on GH)](https://www.buymeacoffee.com/robertlevonyan)
+[![name](https://github.com/robertlevonyan/material-chip-view/blob/master/Images/coffee.jpeg)](https://www.buymeacoffee.com/robertlevonyan)
 
 
 ## Licence
