@@ -39,8 +39,9 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.0.3"
+    kotlinCompilerExtensionVersion = "1.1.1"
   }
+  namespace = "com.robertlevonyan.chip.compose"
 }
 
 allprojects {
@@ -54,8 +55,8 @@ allprojects {
 dependencies {
   implementation(kotlin("stdlib"))
 
-  implementation("androidx.compose.compiler:compiler:1.0.5")
-  implementation("androidx.compose.ui:ui:1.0.5")
-  implementation("androidx.compose.material:material:1.0.5")
-  implementation("androidx.compose.ui:ui-tooling:1.0.5")
+  implementation("androidx.compose.compiler:compiler:1.1.1")
+  implementation("androidx.compose.ui:ui:1.1.1")
+  implementation("androidx.compose.material:material:1.1.1")
+  implementation("androidx.compose.ui:ui-tooling:1.1.1")
 }

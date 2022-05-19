@@ -26,6 +26,7 @@ android {
   kotlinOptions {
     jvmTarget = "11"
   }
+  namespace = "com.robertlevonyan.views.chip"
 }
 
 allprojects {
