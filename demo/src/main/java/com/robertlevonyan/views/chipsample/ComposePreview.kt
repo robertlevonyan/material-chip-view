@@ -16,8 +16,6 @@ import com.robertlevonyan.chip.compose.MaterialChip
 import com.robertlevonyan.chip.compose.MaterialChipGroup
 
 class ComposePreview {
-
-  @OptIn(ExperimentalComposeUiApi::class)
   fun preview(activity: MainActivity) {
     val composableView = activity.findViewById<ComposeView>(R.id.composeView)
 

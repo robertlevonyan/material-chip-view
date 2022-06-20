@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-  compileSdk = 31
+  compileSdk = 32
   defaultConfig {
     applicationId = "com.robertlevonyan.views.chipsample"
     minSdk = 21
-    targetSdk = 31
+    targetSdk = 32
     versionCode = 1
     versionName = "1.0"
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
@@ -31,9 +31,9 @@ android {
 dependencies {
   implementation(kotlin("stdlib"))
 
-  implementation("androidx.appcompat:appcompat:1.4.1")
-  implementation("com.robertlevonyan.view:MaterialChipView:3.0.4")
-  implementation("com.robertlevonyan.compose:materialchip:3.0.4")
+  implementation("androidx.appcompat:appcompat:1.4.2")
+  implementation("com.robertlevonyan.view:MaterialChipView:3.0.5")
+  implementation("com.robertlevonyan.compose:materialchip:3.0.5")
 //  implementation(project(mapOf("path" to ":chip-compose")))
 
   implementation("androidx.compose.compiler:compiler:1.1.1")
