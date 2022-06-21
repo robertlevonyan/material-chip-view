@@ -70,7 +70,7 @@ Add following line of code to your module(app) level gradle file
 ```xml
     app:mcv_selectable="true"
 ```
-|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_selectable_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_selectable_1.jpg)|
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_selectable_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_selectable_1.jpg)|
 |----------------------------------------------------------------------------------------------|-----------|
 
 ```xml
@@ -85,7 +85,7 @@ Add following line of code to your module(app) level gradle file
     app:mcv_textColor="@color/customTitleColor"
 ```
 
-|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_1.jpg)|
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_cloud_1.jpg)|
 |----------------------------------------------------------------------------------------------|-----------|
 
 ### Attributes
@@ -298,7 +298,7 @@ First version of library
 
 ```
     Material Chip View©
-    Copyright 2017 Robert Levonyan
+    Copyright 2022 Robert Levonyan
     Url: https://github.com/robertlevonyan/materialChipView
 
     Licensed under the Apache License, Version 2.0 (the "License");
