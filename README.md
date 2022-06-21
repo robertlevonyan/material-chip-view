@@ -1,6 +1,6 @@
 # Material Chip View
 
-|Material Chip view. Can be used as tags for categories, contacts or creating text clouds. This library can be an alternative for Material Chip from Jetpack library.|<img src="https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.png"  width="500" />|
+|Material Chip view. Can be used as tags for categories, contacts or creating text clouds. This library can be an alternative for Material Chip from Jetpack library.|<img src="https://github.com/robertlevonyan/materialChipView/blob/master/images/chip.png"  width="500" />|
 |----------------------------------------------------------------------------------------------|-----------|
 
 |Android Arsenal|[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-17%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=16)|
@@ -58,25 +58,25 @@ Add following line of code to your module(app) level gradle file
     android:layout_height="wrap_content"
     android:text="@string/customTitle" />
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip.jpg)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip.jpg)
 
 ### Cutomizing Chip
 
 ```xml
     app:mcv_closable="true"
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_closable.jpg)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_closable.jpg)
 
 ```xml
     app:mcv_selectable="true"
 ```
-|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_selectable_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_selectable_1.jpg)|
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_selectable_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_selectable_1.jpg)|
 |----------------------------------------------------------------------------------------------|-----------|
 
 ```xml
     app:mcv_chipIcon="@drawable/customIcon"
 ```
-![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_icon.jpg)
+![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_icon.jpg)
 
 ```xml
     app:mcv_backgroundColor="@color/customChipBackgroundColor"
@@ -85,7 +85,7 @@ Add following line of code to your module(app) level gradle file
     app:mcv_textColor="@color/customTitleColor"
 ```
 
-|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_1.jpg)|
+|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/images/chip_cloud_0.jpg)|![alt text](https://github.com/robertlevonyan/materialChipView/blob/master/Images/chip_cloud_1.jpg)|
 |----------------------------------------------------------------------------------------------|-----------|
 
 ### Attributes
@@ -291,7 +291,7 @@ First version of library
 - **Google Play**: https://play.google.com/store/apps/dev?id=5477562049350283357
 
 <a href="https://www.buymeacoffee.com/robertlevonyan">
-  <img src="https://github.com/robertlevonyan/material-chip-view/blob/master/Images/coffee.jpeg"  width="300" />
+  <img src="https://github.com/robertlevonyan/material-chip-view/blob/master/images/coffee.jpeg"  width="300" />
 </a>
 
 ## Licence
