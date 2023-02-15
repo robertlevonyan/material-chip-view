@@ -22,11 +22,11 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_20
-    targetCompatibility = JavaVersion.VERSION_20
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
   }
   kotlinOptions {
-    jvmTarget = "19"
+    jvmTarget = "11"
     freeCompilerArgs.toMutableList().addAll(
       listOf(
         "-Xallow-jvm-ir-dependencies",
