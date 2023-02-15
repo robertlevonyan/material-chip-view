@@ -1,14 +1,14 @@
 plugins {
   id("com.android.library")
   kotlin("android")
-  id("com.vanniktech.maven.publish")
+  id("com.vanniktech.maven.publish") version "0.24.0"
 }
 
 android {
-  compileSdk = 32
+  compileSdk = 33
   defaultConfig {
     minSdk = 16
-    targetSdk = 32
+    targetSdk = 33
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     setProperty("archivesBaseName", "chip")
   }
@@ -29,15 +29,13 @@ android {
   namespace = "com.robertlevonyan.views.chip"
 }
 
-allprojects {
-  plugins.withId("com.vanniktech.maven.publish") {
-    mavenPublish {
-      sonatypeHost = com.vanniktech.maven.publish.SonatypeHost.S01
-    }
-  }
-}
+//mavenPublishing {
+//  publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
+//
+//  signAllPublications()
+//}
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation("androidx.appcompat:appcompat:1.4.2")
+  implementation("androidx.appcompat:appcompat:1.6.1")
 }

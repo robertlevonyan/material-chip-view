@@ -1,15 +1,15 @@
 plugins {
   id("com.android.library")
-  id("org.jetbrains.kotlin.android")
-  id("com.vanniktech.maven.publish")
+  kotlin("android")
+  id("com.vanniktech.maven.publish") version "0.24.0"
 }
 
 android {
-  compileSdk = 32
+  compileSdk = 33
 
   defaultConfig {
     minSdk = 21
-    targetSdk = 32
+    targetSdk = 33
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
@@ -39,24 +39,22 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.1.1"
+    kotlinCompilerExtensionVersion = "1.4.0"
   }
   namespace = "com.robertlevonyan.chip.compose"
 }
 
-allprojects {
-  plugins.withId("com.vanniktech.maven.publish") {
-    mavenPublish {
-      sonatypeHost = com.vanniktech.maven.publish.SonatypeHost.S01
-    }
-  }
-}
+//mavenPublishing {
+//  publishToMavenCentral(host = com.vanniktech.maven.publish.SonatypeHost.Companion.S01)
+//
+//  signAllPublications()
+//}
 
 dependencies {
   implementation(kotlin("stdlib"))
 
-  implementation("androidx.compose.compiler:compiler:1.1.1")
-  implementation("androidx.compose.ui:ui:1.1.1")
-  implementation("androidx.compose.material:material:1.1.1")
-  implementation("androidx.compose.ui:ui-tooling:1.1.1")
+  implementation("androidx.compose.compiler:compiler:1.4.2")
+  implementation("androidx.compose.ui:ui:1.3.3")
+  implementation("androidx.compose.material:material:1.3.1")
+  implementation("androidx.compose.ui:ui-tooling:1.3.3")
 }

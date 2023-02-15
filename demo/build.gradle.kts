@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-  compileSdk = 32
+  compileSdk = 33
   defaultConfig {
     applicationId = "com.robertlevonyan.views.chipsample"
     minSdk = 21
-    targetSdk = 32
+    targetSdk = 33
     versionCode = 1
     versionName = "1.0"
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
@@ -23,7 +23,7 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.1.1"
+    kotlinCompilerExtensionVersion = "1.4.0"
   }
   namespace = "com.robertlevonyan.views.chipsample"
 }
@@ -31,14 +31,14 @@ android {
 dependencies {
   implementation(kotlin("stdlib"))
 
-  implementation("androidx.appcompat:appcompat:1.4.2")
+  implementation("androidx.appcompat:appcompat:1.6.1")
   implementation("com.robertlevonyan.view:MaterialChipView:3.0.5")
   implementation("com.robertlevonyan.compose:materialchip:3.0.5")
 //  implementation(project(mapOf("path" to ":chip-compose")))
 
-  implementation("androidx.compose.compiler:compiler:1.1.1")
-  implementation("androidx.compose.material:material:1.1.1")
-  implementation("androidx.compose.ui:ui:1.1.1")
-  implementation("androidx.compose.ui:ui-tooling:1.1.1")
-  implementation("androidx.compose.foundation:foundation:1.1.1")
+  implementation("androidx.compose.compiler:compiler:1.4.2")
+  implementation("androidx.compose.material:material:1.3.1")
+  implementation("androidx.compose.ui:ui:1.3.3")
+  implementation("androidx.compose.ui:ui-tooling:1.3.3")
+  implementation("androidx.compose.foundation:foundation:1.3.1")
 }
