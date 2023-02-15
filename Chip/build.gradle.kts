@@ -1,7 +1,7 @@
 plugins {
   id("com.android.library")
   kotlin("android")
-  id("com.vanniktech.maven.publish") version "0.24.0"
+  id("com.vanniktech.maven.publish")
 }
 
 android {
@@ -20,20 +20,20 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
   kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "17"
   }
   namespace = "com.robertlevonyan.views.chip"
 }
 
-//mavenPublishing {
-//  publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
-//
-//  signAllPublications()
-//}
+mavenPublishing {
+  publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
+
+  signAllPublications()
+}
 
 dependencies {
   implementation(kotlin("stdlib"))

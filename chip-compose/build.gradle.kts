@@ -1,7 +1,7 @@
 plugins {
   id("com.android.library")
   kotlin("android")
-  id("com.vanniktech.maven.publish") version "0.24.0"
+  id("com.vanniktech.maven.publish")
 }
 
 android {
@@ -22,11 +22,11 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
   kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "17"
     freeCompilerArgs.toMutableList().addAll(
       listOf(
         "-Xallow-jvm-ir-dependencies",
@@ -44,11 +44,11 @@ android {
   namespace = "com.robertlevonyan.chip.compose"
 }
 
-//mavenPublishing {
-//  publishToMavenCentral(host = com.vanniktech.maven.publish.SonatypeHost.Companion.S01)
-//
-//  signAllPublications()
-//}
+mavenPublishing {
+  publishToMavenCentral(host = com.vanniktech.maven.publish.SonatypeHost.Companion.S01)
+
+  signAllPublications()
+}
 
 dependencies {
   implementation(kotlin("stdlib"))
