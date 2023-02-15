@@ -26,7 +26,7 @@ android {
     targetCompatibility = JavaVersion.VERSION_20
   }
   kotlinOptions {
-    jvmTarget = "20"
+    jvmTarget = "19"
     freeCompilerArgs.toMutableList().addAll(
       listOf(
         "-Xallow-jvm-ir-dependencies",

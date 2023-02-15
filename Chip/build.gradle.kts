@@ -24,7 +24,7 @@ android {
     targetCompatibility = JavaVersion.VERSION_20
   }
   kotlinOptions {
-    jvmTarget = "20"
+    jvmTarget = "19"
   }
   namespace = "com.robertlevonyan.views.chip"
 }
