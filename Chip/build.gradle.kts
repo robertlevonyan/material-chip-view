@@ -20,11 +20,11 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_20
+    targetCompatibility = JavaVersion.VERSION_20
   }
   kotlinOptions {
-    jvmTarget = "17"
+    jvmTarget = "20"
   }
   namespace = "com.robertlevonyan.views.chip"
 }
