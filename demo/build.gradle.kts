@@ -19,11 +19,18 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+  kotlinOptions {
+    jvmTarget = "11"
+  }
   buildFeatures {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.4.0"
+    kotlinCompilerExtensionVersion = "1.4.2"
   }
   namespace = "com.robertlevonyan.views.chipsample"
 }
