@@ -44,12 +44,6 @@ android {
   namespace = "com.robertlevonyan.chip.compose"
 }
 
-mavenPublishing {
-  publishToMavenCentral(host = com.vanniktech.maven.publish.SonatypeHost.Companion.S01)
-
-  signAllPublications()
-}
-
 dependencies {
   implementation(kotlin("stdlib"))
 
