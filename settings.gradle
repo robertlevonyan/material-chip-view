@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 include ':chip'
 include ':demo'
 include ':chip-compose'
+include ':chip-compose-m3'

@@ -3,10 +3,11 @@
 |Material Chip view. Can be used as tags for categories, contacts or creating text clouds. This library can be an alternative for Material Chip from Jetpack library.|<img src="https://github.com/robertlevonyan/materialChipView/blob/master/images/chip.png"  width="500" />|
 |----------------------------------------------------------------------------------------------|-----------|
 
-|Android Arsenal|[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-16%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=16)|
-|--------------------|--------------------|
-|MaterialChipVersion|[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/MaterialChipView/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/MaterialChipView)|
-|ComposeChipVersion|[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.compose/materialchip/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.compose/materialchip)|
+| Android Arsenal             | [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Material%20Chip%20View-yellow.svg?style=flat-square)](https://android-arsenal.com/details/1/5396) [![API](https://img.shields.io/badge/API-16%2B-yellow.svg?style=flat-square)](https://android-arsenal.com/api?level=16) |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MaterialChipVersion         | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/MaterialChipView/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.view/MaterialChipView)                                                                           |
+| ComposeChipVersion          | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.compose/materialchip/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.compose/materialchip)                                                                             |
+| Material3ComposeChipVersion | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.compose/material3chip/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.robertlevonyan.compose/material3chip)                                                                           |
 
 ## Setup
 
@@ -47,6 +48,10 @@ Add following line of code to your module(app) level gradle file
 
 ```kotlin
     implementation("com.robertlevonyan.compose:materialchip:$ComposeChipVersion")
+```
+or if you want to yse Material3 version
+```kotlin
+    implementation("com.robertlevonyan.compose:material3chip:$Material3ComposeChipVersion")
 ```
 
 ## Usage

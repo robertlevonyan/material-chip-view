@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.robertlevonyan.views.chip.Chip;
-import com.robertlevonyan.views.chip.OnSelectClickListener;
+//import com.robertlevonyan.views.chip.Chip;
+//import com.robertlevonyan.views.chip.OnSelectClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout activity_main = findViewById(R.id.activity_main);
 //        Chip chip = findViewById(R.id.football_chip);
-        Chip chip = new Chip(this);
+//        Chip chip = new Chip(this);
 //        final Chip chip2 = new Chip(this);
 //        chip.setText("Some Text");
 //        chip.setChipIcon(ContextCompat.getDrawable(this, R.drawable.android));

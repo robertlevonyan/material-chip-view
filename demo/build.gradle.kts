@@ -39,12 +39,14 @@ dependencies {
   implementation(kotlin("stdlib"))
 
   implementation("androidx.appcompat:appcompat:1.6.1")
-  implementation("com.robertlevonyan.view:MaterialChipView:3.0.5")
-  implementation("com.robertlevonyan.compose:materialchip:3.0.5")
-//  implementation(project(mapOf("path" to ":chip-compose")))
+//  implementation("com.robertlevonyan.view:MaterialChipView:3.0.5")
+//  implementation("com.robertlevonyan.compose:materialchip:3.0.5")
+  implementation("com.robertlevonyan.compose:material3chip:1.0.0-alpha01")
+//  implementation(project(mapOf("path" to ":chip-compose-m3")))
 
   implementation("androidx.compose.compiler:compiler:1.4.2")
   implementation("androidx.compose.material:material:1.3.1")
+  implementation("androidx.compose.material3:material3:1.1.0-alpha06")
   implementation("androidx.compose.ui:ui:1.3.3")
   implementation("androidx.compose.ui:ui-tooling:1.3.3")
   implementation("androidx.compose.foundation:foundation:1.3.1")
