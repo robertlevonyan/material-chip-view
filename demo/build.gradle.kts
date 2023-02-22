@@ -40,8 +40,8 @@ dependencies {
 
   implementation("androidx.appcompat:appcompat:1.6.1")
 //  implementation("com.robertlevonyan.view:MaterialChipView:3.0.5")
-//  implementation("com.robertlevonyan.compose:materialchip:3.0.5")
-  implementation("com.robertlevonyan.compose:material3chip:1.0.0-alpha01")
+//  implementation("com.robertlevonyan.compose:materialchip:3.0.6")
+  implementation("com.robertlevonyan.compose:material3chip:1.0.0-alpha03")
 //  implementation(project(mapOf("path" to ":chip-compose-m3")))
 
   implementation("androidx.compose.compiler:compiler:1.4.2")
