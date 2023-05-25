@@ -20,17 +20,17 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
   kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "17"
   }
   buildFeatures {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.4.2"
+    kotlinCompilerExtensionVersion = "1.4.7"
   }
   namespace = "com.robertlevonyan.views.chipsample"
 }
@@ -44,10 +44,10 @@ dependencies {
   implementation("com.robertlevonyan.compose:material3chip:1.0.0-alpha03")
 //  implementation(project(mapOf("path" to ":chip-compose-m3")))
 
-  implementation("androidx.compose.compiler:compiler:1.4.2")
-  implementation("androidx.compose.material:material:1.3.1")
-  implementation("androidx.compose.material3:material3:1.1.0-alpha06")
-  implementation("androidx.compose.ui:ui:1.3.3")
-  implementation("androidx.compose.ui:ui-tooling:1.3.3")
-  implementation("androidx.compose.foundation:foundation:1.3.1")
+  implementation("androidx.compose.compiler:compiler:1.4.7")
+  implementation("androidx.compose.material:material:1.4.3")
+  implementation("androidx.compose.material3:material3:1.2.0-alpha02")
+  implementation("androidx.compose.ui:ui:1.4.3")
+  implementation("androidx.compose.ui:ui-tooling:1.4.3")
+  implementation("androidx.compose.foundation:foundation:1.4.3")
 }
