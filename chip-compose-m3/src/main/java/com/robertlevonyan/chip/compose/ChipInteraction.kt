@@ -1,8 +1,8 @@
 package com.robertlevonyan.chip.compose
 
 sealed class ChipInteraction {
-  object Selectable: ChipInteraction()
-  object Closable: ChipInteraction()
-  object SelectableWithoutIcon: ChipInteraction()
-  object None: ChipInteraction()
+  data object Selectable: ChipInteraction()
+  data object Closable: ChipInteraction()
+  data object SelectableWithoutIcon: ChipInteraction()
+  data object None: ChipInteraction()
 }

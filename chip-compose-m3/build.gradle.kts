@@ -5,22 +5,16 @@ plugins {
 }
 
 android {
-  compileSdk = 33
+  compileSdk = 34
 
   defaultConfig {
     minSdk = 21
-    targetSdk = 33
+    targetSdk = 34
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
   }
 
-  buildTypes {
-    release {
-      isMinifyEnabled = true
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-    }
-  }
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
@@ -39,7 +33,7 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.4.7"
+    kotlinCompilerExtensionVersion = "1.5.3"
   }
   namespace = "com.robertlevonyan.chip.compose"
 }
@@ -47,8 +41,8 @@ android {
 dependencies {
   implementation(kotlin("stdlib"))
 
-  implementation("androidx.compose.compiler:compiler:1.4.7")
-  implementation("androidx.compose.ui:ui:1.4.3")
-  implementation("androidx.compose.material3:material3:1.2.0-alpha02")
-  implementation("androidx.compose.ui:ui-tooling:1.4.3")
+  implementation("androidx.compose.compiler:compiler:1.5.3")
+  implementation("androidx.compose.ui:ui:1.5.4")
+  implementation("androidx.compose.material3:material3:1.1.2")
+  implementation("androidx.compose.ui:ui-tooling:1.5.4")
 }

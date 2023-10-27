@@ -4,20 +4,14 @@ plugins {
 }
 
 android {
-  compileSdk = 33
+  compileSdk = 34
   defaultConfig {
     applicationId = "com.robertlevonyan.views.chipsample"
     minSdk = 21
-    targetSdk = 33
+    targetSdk = 34
     versionCode = 1
     versionName = "1.0"
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-  }
-  buildTypes {
-    getByName("release") {
-      isMinifyEnabled = true
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-    }
   }
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -30,7 +24,7 @@ android {
     compose = true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = "1.4.7"
+    kotlinCompilerExtensionVersion = "1.5.3"
   }
   namespace = "com.robertlevonyan.views.chipsample"
 }
@@ -39,15 +33,15 @@ dependencies {
   implementation(kotlin("stdlib"))
 
   implementation("androidx.appcompat:appcompat:1.6.1")
-//  implementation("com.robertlevonyan.view:MaterialChipView:3.0.5")
+  implementation("com.robertlevonyan.view:MaterialChipView:3.0.8")
 //  implementation("com.robertlevonyan.compose:materialchip:3.0.6")
-  implementation("com.robertlevonyan.compose:material3chip:1.0.0-alpha03")
+//  implementation("com.robertlevonyan.compose:material3chip:1.0.1")
 //  implementation(project(mapOf("path" to ":chip-compose-m3")))
 
-  implementation("androidx.compose.compiler:compiler:1.4.7")
-  implementation("androidx.compose.material:material:1.4.3")
-  implementation("androidx.compose.material3:material3:1.2.0-alpha02")
-  implementation("androidx.compose.ui:ui:1.4.3")
-  implementation("androidx.compose.ui:ui-tooling:1.4.3")
-  implementation("androidx.compose.foundation:foundation:1.4.3")
+  implementation("androidx.compose.compiler:compiler:1.5.3")
+  implementation("androidx.compose.material:material:1.5.4")
+  implementation("androidx.compose.material3:material3:1.1.2")
+  implementation("androidx.compose.ui:ui:1.5.4")
+  implementation("androidx.compose.ui:ui-tooling:1.5.4")
+  implementation("androidx.compose.foundation:foundation:1.5.4")
 }

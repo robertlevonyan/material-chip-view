@@ -228,6 +228,10 @@ setContent {
 
 ## Versions
 
+### 1.0.0 (Material3)
+
+Jetpack compose version with Material 3 styling
+
 ### 3.0.0
 
 Jetpack Compose support added
