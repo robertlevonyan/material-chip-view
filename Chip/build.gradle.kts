@@ -1,14 +1,13 @@
 plugins {
-  id("com.android.library")
-  kotlin("android")
-  id("com.vanniktech.maven.publish")
+  alias(libs.plugins.android.library)
+  alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.maven.publish)
 }
 
 android {
-  compileSdk = 34
+  compileSdk = 35
   defaultConfig {
     minSdk = 16
-    targetSdk = 34
     testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     setProperty("archivesBaseName", "chip")
   }
@@ -24,6 +23,5 @@ android {
 }
 
 dependencies {
-  implementation(kotlin("stdlib"))
-  implementation("androidx.appcompat:appcompat:1.6.1")
+  implementation(libs.androidx.appcompat)
 }
