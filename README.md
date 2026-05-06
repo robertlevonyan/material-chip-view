@@ -1,3 +1,9 @@
+> ℹ️ **Info**
+> 
+> This library is no longer maintained, as a native component is now available.
+>
+> Check [Chips](https://m3.material.io/components/chips/overview)
+
 # Material Chip View
 
 |Material Chip view. Can be used as tags for categories, contacts or creating text clouds. This library can be an alternative for Material Chip from Jetpack library.|<img src="https://github.com/robertlevonyan/materialChipView/blob/master/images/chip.png"  width="500" />|
